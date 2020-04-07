@@ -5,42 +5,24 @@
  */
 package com.esprit.pidev.tgt.controllers;
 
+import com.esprit.pidev.tgt.utils.Rooting;
 import com.jfoenix.controls.JFXButton;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Tab;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
- * @author marsaoui
+ * @author goldzeo
  */
-public class FXMLController implements Initializable {
+public class ListeEntretientController implements Initializable {
 
     @FXML
-    private Tab acceuil;
-    @FXML
-    private Tab publications;
-    @FXML
-    private Tab Organisation;
-    @FXML
-    private JFXButton ajouter_un_condidat;
-    @FXML
-    private Tab gestion_entretients;
-    @FXML
-    private JFXButton Liste_des_condidats;
-    @FXML
-    private JFXButton Liste_des_entretients;
-    @FXML
-    private JFXButton condidats_accepter;
-    @FXML
-    private Tab formatons;
-    @FXML
-    private Tab article;
-    @FXML
-    private Tab profile;
+    private JFXButton affecter_une_date;
 
     /**
      * Initializes the controller class.
@@ -49,5 +31,14 @@ public class FXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    
+
+    @FXML
+    private void affecter_une_date(ActionEvent event) {
+        
+         Rooting.navigate("formulaire entretient", "EntretientFormulaire");
+            closeStage();
+    }
+            private void closeStage() {
+        ((Stage) affecter_une_date.getScene().getWindow()).close();
+    }
 }

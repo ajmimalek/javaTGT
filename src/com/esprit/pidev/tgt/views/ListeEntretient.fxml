@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1202.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.pidev.tgt.controllers.ListeEntretientController">
+   <children>
+      <JFXButton fx:id="affecter_une_date" layoutX="662.0" layoutY="493.0" onAction="#affecter_une_date" prefHeight="55.0" prefWidth="154.0" text="affecter une date" />
+      <TableView fx:id="tableView" layoutX="9.0" layoutY="185.0" prefHeight="504.0" prefWidth="1184.0">
+         <columns>
+            <TableColumn maxWidth="134.0" minWidth="80.0" prefWidth="134.0" text="cin de candidat" />
+            <TableColumn prefWidth="136.0" text="nom candidat" />
+            <TableColumn prefWidth="190.0" text="addrese mail " />
+            <TableColumn fx:id="voiture" maxWidth="302.0" minWidth="0.0" prefWidth="159.0" text="numero du tel" />
+            <TableColumn fx:id="NbPassager" prefWidth="95.0" text="cv" />
+            <TableColumn fx:id="evaluation" minWidth="0.0" prefWidth="189.0" text="motivation" />
+            <TableColumn fx:id="statut" minWidth="0.0" prefWidth="164.0" text="nom du casting" />
+            <TableColumn prefWidth="116.0" text="statut" />
+         </columns>
+         <contextMenu>
+            <ContextMenu styleClass="table-context">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#showDetaille" text="details" />
+               </items>
+            </ContextMenu>
+         </contextMenu>
+      </TableView>
+   </children>
+</AnchorPane>

@@ -5,19 +5,22 @@
  */
 package com.esprit.pidev.tgt.controllers;
 
+import com.esprit.pidev.tgt.utils.Rooting;
 import com.jfoenix.controls.JFXButton;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Tab;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
- * @author marsaoui
+ * @author goldzeo
  */
-public class FXMLController implements Initializable {
+public class MainControllers implements Initializable {
 
     @FXML
     private Tab acceuil;
@@ -49,5 +52,32 @@ public class FXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    
-}
+
+    @FXML
+    private void ajouter_un_condidat(ActionEvent event) {
+        Rooting.navigate("main", "CondidatFormulaire");
+      //      closeStage();
+        }
+       
+    private void closeStage() {
+        ((Stage) ajouter_un_condidat.getScene().getWindow()).close();
+    }
+        
+     @FXML
+    void Liste_des_condidats(ActionEvent event) {
+        
+            Rooting.navigate("list candidat", "BackOfice");
+    }
+
+    @FXML
+    void Liste_des_entretients(ActionEvent event) {
+         Rooting.navigate("main", "EntretientFormulaire");
+            closeStage();
+        }
+
+    @FXML
+    void condidats_accepter(ActionEvent event) {
+
+    }
+ }
+

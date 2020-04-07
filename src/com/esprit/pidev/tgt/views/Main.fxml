@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="735.0" prefWidth="1042.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.pidev.tgt.controllers.MainControllers">
+   <children>
+      <TabPane layoutX="7.0" layoutY="8.0" prefHeight="715.0" prefWidth="1023.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="acceuil" text="Acceuil">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+          <Tab fx:id="publications" text="Publications">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+            <Tab fx:id="Organisation" text="Organisation">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <JFXButton fx:id="ajouter_un_condidat" layoutX="730.0" layoutY="70.0" onAction="#ajouter_un_condidat" prefHeight="117.0" prefWidth="183.0" text="ajouter un condidat" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="gestion_entretients" text="Gestion d'entretients">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <JFXButton fx:id="Liste_des_condidats" layoutX="154.0" layoutY="81.0" onAction="#Liste_des_condidats" prefHeight="138.0" prefWidth="190.0" text="Liste des condidats" />
+                        <JFXButton fx:id="Liste_des_entretients" layoutX="646.0" layoutY="81.0" onAction="#Liste_des_entretients" prefHeight="138.0" prefWidth="190.0" text="Liste des entretients" />
+                        <JFXButton fx:id="condidats_accepter" layoutX="361.0" layoutY="338.0" onAction="#condidats_accepter" prefHeight="138.0" prefWidth="302.0" text="Liste des condidats accepter" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="formatons" text="Formatons">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab fx:id="article" text="Article">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab fx:id="profile" text="Profile">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

@@ -22,7 +22,7 @@ public class TGT extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        Rooting.navigate("login", "FXML");
+        Rooting.navigate("login", "Login");
     }
 
     /**

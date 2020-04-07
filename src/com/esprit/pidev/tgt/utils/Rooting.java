@@ -18,10 +18,11 @@ import javafx.stage.StageStyle;
 public class Rooting {
     
     
-    public static void navigate(String titre, String interfaceName){
-    
-         try {
-            Parent parent = FXMLLoader.load(Rooting.class.getClassLoader().getResource("com/esprit/pidev/tgt/views/"+interfaceName+".fxml"));
+    public static FXMLLoader  navigate(String titre, String interfaceName){
+        FXMLLoader loader = null;
+        try {
+            loader = new FXMLLoader(Rooting.class.getClassLoader().getResource("com/esprit/pidev/tgt/views/"+interfaceName+".fxml"));
+            Parent parent = loader.load();
             Stage stage = new Stage(StageStyle.DECORATED);
             stage.setTitle(titre);
             //stage.getIcons().add(new Image("/resources/image/Image3.png"));
@@ -31,6 +32,8 @@ public class Rooting {
         catch (Exception ex) {
             System.out.println(ex.getLocalizedMessage());
         }
+        
+        return loader;
     }
     
 }

@@ -6,41 +6,31 @@
 package com.esprit.pidev.tgt.controllers;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Tab;
+import javafx.scene.control.Label;
 
 /**
  * FXML Controller class
  *
- * @author marsaoui
+ * @author goldzeo
  */
-public class FXMLController implements Initializable {
+public class EspaceEntretientController implements Initializable {
 
     @FXML
-    private Tab acceuil;
+    private Label nomC;
     @FXML
-    private Tab publications;
+    private Label titreCasting;
     @FXML
-    private Tab Organisation;
+    private JFXTextField note;
     @FXML
-    private JFXButton ajouter_un_condidat;
+    private JFXButton accepter_condidat;
     @FXML
-    private Tab gestion_entretients;
-    @FXML
-    private JFXButton Liste_des_condidats;
-    @FXML
-    private JFXButton Liste_des_entretients;
-    @FXML
-    private JFXButton condidats_accepter;
-    @FXML
-    private Tab formatons;
-    @FXML
-    private Tab article;
-    @FXML
-    private Tab profile;
+    private JFXButton refuser_codidat;
 
     /**
      * Initializes the controller class.
@@ -49,5 +39,9 @@ public class FXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void login(ActionEvent event) {
+    }
     
 }
