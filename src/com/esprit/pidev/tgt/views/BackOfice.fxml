@@ -61,18 +61,42 @@
                                     <Button fx:id="recherchecandidat" layoutX="611.0" layoutY="34.0" mnemonicParsing="false" text="recherche" />
                                     <Button fx:id="modifier" layoutX="49.0" layoutY="26.0" mnemonicParsing="false" onAction="#modifier" text="modifier" />
                                     <Button fx:id="suprimer" layoutX="145.0" layoutY="26.0" mnemonicParsing="false" onAction="#suprimer" text="suprimer" />
+                                    <Button fx:id="affectationDate" layoutX="342.0" layoutY="26.0" mnemonicParsing="false" onAction="#affectationDate" prefHeight="31.0" prefWidth="158.0" text="attribuer une date" />
                                  </children>
                               </AnchorPane>
                            </content>
                         </Tab>
-                        <Tab text="ajouter un candidat">
-                           <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                           </content>
-                        </Tab>
                         <Tab text="aficher liste des entretient">
                            <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <ScrollPane layoutX="6.0" layoutY="70.0" prefHeight="612.0" prefWidth="873.0">
+                                       <content>
+                                          <TableView fx:id="tableViewEntretient" prefHeight="589.0" prefWidth="1184.0">
+                                             <columns>
+                                                <TableColumn fx:id="nomCasting" prefWidth="136.0" text="nom du casting" />
+                                                <TableColumn fx:id="nomCandidat" prefWidth="147.0" text="nom du candidat" />
+                                                <TableColumn fx:id="dateEntretient" prefWidth="135.0" text="date d'entretient" />
+                                                <TableColumn fx:id="heurEntretient" minWidth="0.0" prefWidth="178.0" text="heurs d'entretient" />
+                                                <TableColumn fx:id="satutE" minWidth="0.0" prefWidth="175.0" text="statut" />
+                                                <TableColumn fx:id="noteE" prefWidth="116.0" text="note" />
+                                             </columns>
+                                             <contextMenu>
+                                                <ContextMenu styleClass="table-context">
+                                                   <items>
+                                                      <MenuItem mnemonicParsing="false" onAction="#showDetaille" text="details" />
+                                                   </items>
+                                                </ContextMenu>
+                                             </contextMenu>
+                                          </TableView>
+                                       </content>
+                                    </ScrollPane>
+                                    <TextField layoutX="603.0" layoutY="25.0" prefHeight="31.0" prefWidth="260.0" />
+                                    <Button fx:id="rechercheEntretient" layoutX="507.0" layoutY="25.0" mnemonicParsing="false" onAction="#rechercheEntretient" text="recherche" />
+                                    <Button fx:id="modifierEntretient" layoutX="36.0" layoutY="25.0" mnemonicParsing="false" onAction="#modifierEntretient" text="modifier" />
+                                    <Button fx:id="suprimerEntrretient" layoutX="127.0" layoutY="25.0" mnemonicParsing="false" onAction="#suprimerEntrretient" text="suprimer" />
+                                    <Button layoutX="277.0" layoutY="25.0" mnemonicParsing="false" onAction="#makeCall" prefHeight="31.0" prefWidth="146.0" text="call meaning" />
+                                 </children></AnchorPane>
                            </content>
                         </Tab>
                         <Tab text="aficher liste des cantrat">

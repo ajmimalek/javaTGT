@@ -5,8 +5,10 @@
  */
 package com.esprit.pidev.tgt.controllers;
 
+import com.esprit.pidev.tgt.entities.Candidat;
 import com.esprit.pidev.tgt.entities.Entretien;
 import com.esprit.pidev.tgt.enumeration.StatutEnt;
+import com.esprit.pidev.tgt.services.CandidatService;
 import com.esprit.pidev.tgt.services.EntretientService;
 import com.esprit.pidev.tgt.utils.Rooting;
 import com.jfoenix.controls.JFXButton;
@@ -28,7 +30,10 @@ import javafx.stage.Stage;
  */
 public class EntretientFormulaireController implements Initializable {
 private Statement statement;
-    private EntretientService entretientService = new EntretientService();
+     private CandidatService candidatService = new CandidatService();
+      private Candidat candidat;
+          private BackOficeController backOficeController;
+      
     @FXML
     private JFXDatePicker dateEnt;
     @FXML
@@ -46,13 +51,12 @@ private Statement statement;
     
     @FXML
     void affecter_une_date(ActionEvent event) {
-        
         LocalDate dateEnt = this.dateEnt.getValue();
         Entretien entretient=new Entretien(0, dateEnt, StatutEnt.en_cour, 0);
         System.out.println(entretient);
          try {
-            entretientService.save(entretient);
-            Rooting.navigate("main", "Main");
+            this.candidat.setEntretient(entretient);
+            candidatService.affecterDate(this.candidat);
             closeStage();
         } catch (Exception ex) {
            // Logger.getLogger(SingUpController.class.getName()).log(Level.SEVERE, null, ex);
@@ -61,5 +65,10 @@ private Statement statement;
     
          private void closeStage() {
         ((Stage) nom_condidat.getScene().getWindow()).close();
+    }
+         
+          public void initfields(Candidat candidat, BackOficeController backOficeController){
+    this.candidat=candidat;
+     this.backOficeController= backOficeController;
     }
 }

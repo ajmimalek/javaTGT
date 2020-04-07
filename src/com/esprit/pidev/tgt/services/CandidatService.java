@@ -82,6 +82,11 @@ public class CandidatService  implements ICandidatService{
         return new Candidat(id, casting, entretient, nomC, cinCondidat, cv, motivation, mailaddress, tel);
     }
     
+    public void affecterDate(Candidat condidat)throws SQLException {
+        int id= entretientService.save(condidat.getEntretient());
+        condidat.getEntretient().setId(id);
+        update(condidat);
+    }
 
 
     @Override
@@ -91,17 +96,12 @@ public class CandidatService  implements ICandidatService{
     }
 
     @Override
-    public void delete(int id) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void delete(Candidat condidat) throws SQLException {
+          statement.executeUpdate("DELETE FROM `candidat` WHERE id =" + condidat.getId()); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void deleteAll() throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Candidat findById(int id) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

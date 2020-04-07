@@ -32,6 +32,7 @@ public class CondidatFormulaireController implements Initializable {
     private Statement statement;
     private CandidatService candidatService = new CandidatService();
     private Candidat candidat;
+    private BackOficeController backOficeController;
     
     @FXML
     private JFXTextField nomC;
@@ -71,6 +72,7 @@ public class CondidatFormulaireController implements Initializable {
             candidatService.save(candidat);
             }else{
             candidatService.update(candidat);
+            backOficeController.loadData();
             }
             closeStage();
         } catch (Exception ex) {
@@ -89,9 +91,15 @@ public class CondidatFormulaireController implements Initializable {
     void initInput (){
     this.nomC.setText(candidat.getNomC());
     this.cinCondidat.setText(candidat.getCinCondidat()+"");
-       this.cv.setText(candidat.getCv());
-       this.mailaddress.setText(candidat.getMailaddress());
+    this.cv.setText(candidat.getCv());
+     this.mailaddress.setText(candidat.getMailaddress());
        this.motivation.setText(candidat.getMotivation());
-        this.tel.setText(candidat.getTel()+"");
+      this.tel.setText(candidat.getTel()+"");
+    }
+
+    void initfields(Candidat selectedCandidat, BackOficeController backOficeController) {
+       this.candidat=selectedCandidat;
+       this.backOficeController= backOficeController;
+       initInput();
     }
 }

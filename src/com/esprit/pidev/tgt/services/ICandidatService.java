@@ -13,11 +13,11 @@ import java.util.List;
  *
  * @author goldzeo
  */
-public interface ICandidatService extends IServices<Candidat>{
+public interface ICandidatService {
     public int save(Candidat condidat) throws SQLException;
     public Candidat findByUsername(String username) throws SQLException; 
     public List<Candidat> findAll() throws SQLException;
     public boolean update(Candidat condidat) throws SQLException;
-    public void delete(int id) throws SQLException;
+    public void delete(Candidat condidat) throws SQLException;
     public void deleteAll() throws SQLException;
 }

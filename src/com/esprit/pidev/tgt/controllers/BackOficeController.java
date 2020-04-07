@@ -67,6 +67,26 @@ public class BackOficeController implements Initializable {
 
     @FXML
     private Button suprimer;
+    @FXML
+    private TableView<?> tableViewEntretient;
+    @FXML
+    private TableColumn<?, ?> nomCandidat;
+    @FXML
+    private TableColumn<?, ?> dateEntretient;
+    @FXML
+    private TableColumn<?, ?> heurEntretient;
+    @FXML
+    private Button rechercheEntretient;
+    @FXML
+    private Button modifierEntretient;
+    @FXML
+    private Button suprimerEntrretient;
+    @FXML
+    private TableColumn<?, ?> satutE;
+    @FXML
+    private TableColumn<?, ?> noteE;
+    @FXML
+    private Button affectationDate;
 
 
 
@@ -104,7 +124,7 @@ public class BackOficeController implements Initializable {
         });
          
      }
-     private void loadData() {
+     public void loadData() {
        
 
         try {
@@ -129,7 +149,7 @@ public class BackOficeController implements Initializable {
          
         FXMLLoader loader = Rooting.navigate("modif", "CondidatFormulaire");
         CondidatFormulaireController controller = (CondidatFormulaireController) loader.getController();
-         controller.setcandidat(selectedCandidat);
+         controller.initfields(selectedCandidat,this);
         
         }
         
@@ -137,11 +157,51 @@ public class BackOficeController implements Initializable {
 
     @FXML
     void showDetaille(ActionEvent event) {
-
     }
 
     @FXML
     void suprimer(ActionEvent event) {
+  
+    Candidat selectedCandidat  = tableViewCandidat.getSelectionModel().getSelectedItem();
+        if (selectedCandidat==null){
+            System.out.println("choisir un candidat");
+            
+        }else{
+         
+        FXMLLoader loader = Rooting.navigate("supprimer", "ValidationDeSuppression");
+        ValidationDeSuppressionController controller = (ValidationDeSuppressionController) loader.getController();
+         controller.initfields(selectedCandidat,this);
+        
+        }
+    }
 
+    @FXML
+    private void rechercheEntretient(ActionEvent event) {
+    }
+
+    @FXML
+    private void modifierEntretient(ActionEvent event) {
+    }
+
+    @FXML
+    private void suprimerEntrretient(ActionEvent event) {
+    }
+
+    @FXML
+    private void makeCall(ActionEvent event) {
+    }
+
+    @FXML
+    private void affectationDate(ActionEvent event) {
+         Candidat selectedCandidat  = tableViewCandidat.getSelectionModel().getSelectedItem();
+        if (selectedCandidat==null){
+            System.out.println("choisir un candidat");
+            
+        }else{
+         
+         FXMLLoader loader = Rooting.navigate("modif", "EntretientFormulaire");
+        EntretientFormulaireController controller = (EntretientFormulaireController) loader.getController();
+         controller.initfields(selectedCandidat,this); 
+        }
     }
 }

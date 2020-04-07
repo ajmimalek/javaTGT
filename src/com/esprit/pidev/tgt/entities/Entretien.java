@@ -14,10 +14,11 @@ import java.util.Objects;
  * @author goldzeo
  */
 public class Entretien {
-     private int id;
+    private int id;
     private LocalDate dateEnt;
     private StatutEnt statutEnt;
     private float noteEnt;
+    private Candidat candidat;
 
     public Entretien(int id, LocalDate dateEnt, StatutEnt statutEnt, float noteEnt) {
         this.id = id;
@@ -25,6 +26,15 @@ public class Entretien {
         this.statutEnt = statutEnt;
         this.noteEnt = noteEnt;
     }
+
+    public Entretien(int id, LocalDate dateEnt, StatutEnt statutEnt, float noteEnt, Candidat candidat) {
+        this.id = id;
+        this.dateEnt = dateEnt;
+        this.statutEnt = statutEnt;
+        this.noteEnt = noteEnt;
+        this.candidat = candidat;
+    }
+    
 
     public int getId() {
         return id;
@@ -58,18 +68,28 @@ public class Entretien {
         this.noteEnt = noteEnt;
     }
 
+  
+    public Candidat getCandidat() {
+        return candidat;
+    }
+
+    public void setCandidat(Candidat candidat) {
+        this.candidat = candidat;
+    }
+
     @Override
     public String toString() {
-        return "Entretien{" + "id=" + id + ", dateEnt=" + dateEnt + ", statutEnt=" + statutEnt + ", noteEnt=" + noteEnt + '}';
+        return "Entretien{" + "id=" + id + ", dateEnt=" + dateEnt + ", statutEnt=" + statutEnt + ", noteEnt=" + noteEnt + ", candidat=" + candidat + '}';
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 67 * hash + this.id;
-        hash = 67 * hash + Objects.hashCode(this.dateEnt);
-        hash = 67 * hash + Objects.hashCode(this.statutEnt);
-        hash = 67 * hash + Float.floatToIntBits(this.noteEnt);
+        int hash = 7;
+        hash = 47 * hash + this.id;
+        hash = 47 * hash + Objects.hashCode(this.dateEnt);
+        hash = 47 * hash + Objects.hashCode(this.statutEnt);
+        hash = 47 * hash + Float.floatToIntBits(this.noteEnt);
+        hash = 47 * hash + Objects.hashCode(this.candidat);
         return hash;
     }
 
@@ -97,9 +117,13 @@ public class Entretien {
         if (this.statutEnt != other.statutEnt) {
             return false;
         }
+        if (!Objects.equals(this.candidat, other.candidat)) {
+            return false;
+        }
         return true;
     }
     
+
     
     
 }
