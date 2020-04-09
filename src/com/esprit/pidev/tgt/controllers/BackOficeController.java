@@ -14,6 +14,8 @@ import com.esprit.pidev.tgt.services.ICandidatService;
 import com.esprit.pidev.tgt.utils.Rooting;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Iterator;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleObjectProperty;
@@ -41,8 +43,7 @@ public class BackOficeController implements Initializable {
      ObservableList<Candidat> candidatList = FXCollections.observableArrayList();
      ICandidatService candidatservice = new CandidatService();
     @FXML
-    private Button gestionCandidature;
-    @FXML
+    private Button gestionCandidature; @FXML
     private TableView<Candidat> tableViewCandidat;
     @FXML
     private TableColumn<Candidat, Integer> cin;
@@ -68,28 +69,26 @@ public class BackOficeController implements Initializable {
     @FXML
     private Button suprimer;
     @FXML
-    private TableView<?> tableViewEntretient;
+    private TableView<Candidat> tableViewEntretient;
     @FXML
-    private TableColumn<?, ?> nomCandidat;
+    private TableColumn<Candidat, String> nomCandidat;
     @FXML
-    private TableColumn<?, ?> dateEntretient;
+    private TableColumn<Candidat, String> dateEntretient;
     @FXML
-    private TableColumn<?, ?> heurEntretient;
+    private TableColumn<Candidat, String> heurEntretient;
+    @FXML
+    private TableColumn<Candidat, String> satutE;
+    @FXML
+    private TableColumn<Candidat, Float> noteE;
+    @FXML
+    private Button affectationDate;
+
     @FXML
     private Button rechercheEntretient;
     @FXML
     private Button modifierEntretient;
     @FXML
     private Button suprimerEntrretient;
-    @FXML
-    private TableColumn<?, ?> satutE;
-    @FXML
-    private TableColumn<?, ?> noteE;
-    @FXML
-    private Button affectationDate;
-
-
-
     /**
      * Initializes the controller class.
      */
@@ -97,7 +96,8 @@ public class BackOficeController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
          initCol();
-        loadData();    
+        loadData(); 
+        initColEntretient();
     }    
     
      private void initCol() {
@@ -134,7 +134,7 @@ public class BackOficeController implements Initializable {
             
         }
         
-         
+        tableViewEntretient.setItems(candidatList);
 
         tableViewCandidat.setItems(candidatList);
     }
@@ -189,6 +189,17 @@ public class BackOficeController implements Initializable {
 
     @FXML
     private void makeCall(ActionEvent event) {
+        Candidat selectedCandidat  = tableViewEntretient.getSelectionModel().getSelectedItem();
+        if (selectedCandidat==null){
+            System.out.println("choisir un candidat");
+            
+        }else{
+         
+        FXMLLoader loader = Rooting.navigate("call", "EspaceEntretient");
+        EspaceEntretientController controller = (EspaceEntretientController) loader.getController();
+         controller.initfields(selectedCandidat,this);
+        
+        }
     }
 
     @FXML
@@ -204,4 +215,38 @@ public class BackOficeController implements Initializable {
          controller.initfields(selectedCandidat,this); 
         }
     }
+    
+     private void initColEntretient() {
+         nomCandidat.setCellValueFactory(new PropertyValueFactory<>("nomC"));
+         dateEntretient.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Candidat, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Candidat, String> param) {
+               String result = param.getValue().getEntretient().getDateEnt().toLocalDate().toString();
+                return new SimpleObjectProperty<String>(result);
+            }
+        });
+         heurEntretient.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Candidat, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Candidat, String> param) {
+               String result = param.getValue().getEntretient().getDateEnt().toLocalTime().toString();
+                return new SimpleObjectProperty<String>(result);
+            }
+        });
+          satutE.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Candidat, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Candidat, String> param) {
+               String result = param.getValue().getEntretient().getStatutEnt().toString();
+                return new SimpleObjectProperty<String>(result);
+            }
+        });
+         
+         noteE.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Candidat, Float>, ObservableValue<Float>>() {
+            @Override
+            public ObservableValue<Float> call(TableColumn.CellDataFeatures<Candidat, Float> param) {
+               Float result = param.getValue().getEntretient().getNoteEnt();
+                return new SimpleObjectProperty<Float>(result);
+        
+            }
+});
+                 }
 }

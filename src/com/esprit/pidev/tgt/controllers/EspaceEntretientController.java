@@ -5,6 +5,9 @@
  */
 package com.esprit.pidev.tgt.controllers;
 
+import com.esprit.pidev.tgt.entities.Candidat;
+import com.esprit.pidev.tgt.services.CandidatService;
+import com.esprit.pidev.tgt.services.EntretientService;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
@@ -13,6 +16,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.Labeled;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  * FXML Controller class
@@ -20,6 +25,11 @@ import javafx.scene.control.Label;
  * @author goldzeo
  */
 public class EspaceEntretientController implements Initializable {
+     private Candidat candidat;
+    private BackOficeController backOficeController;
+    private EntretientService entretientService = new EntretientService();
+    
+    
 
     @FXML
     private Label nomC;
@@ -38,10 +48,30 @@ public class EspaceEntretientController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+     
     }    
 
-    @FXML
-    private void login(ActionEvent event) {
+     private void initlabel() {
+     nomC.setText(candidat.getNomC());
+         
+    
+         
+     }
+    
+       void initfields(Candidat selectedCandidat, BackOficeController backOficeController) {
+       this.candidat=selectedCandidat;
+       this.backOficeController= backOficeController;
+       initlabel();
     }
+
+    @FXML
+    private void accepter(ActionEvent event) {
+        
+    }
+
+    @FXML
+    private void refuser(ActionEvent event) {
+    }
+
     
 }

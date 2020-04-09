@@ -50,7 +50,11 @@ public class CandidatService  implements ICandidatService{
         return id;
     }
     
-    
+     @Override
+    public Candidat findById(int id) throws SQLException {
+        ResultSet result = statement.executeQuery("SELECT * FROM `candidat` WHERE id =" + id);
+        return result.next()? extract(result) : null;
+    }
 
     @Override
     public Candidat findByUsername(String username) throws SQLException {

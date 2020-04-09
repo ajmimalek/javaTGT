@@ -16,6 +16,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -63,7 +64,7 @@ public class EntretientService  implements IEntretientService{
     
     private Entretien extract(ResultSet result)throws SQLException{
            int id = result.getInt("id");
-           LocalDate dateEnt= result.getDate("dateEnt").toLocalDate();
+           LocalDateTime dateEnt= result.getTimestamp("dateEnt").toLocalDateTime();
            StatutEnt statutEnt = StatutEnt.valueOf(result.getString("statutEnt"));
            float noteEnt =result.getFloat("noteEnt"); 
             return new Entretien(id, dateEnt, statutEnt, noteEnt);

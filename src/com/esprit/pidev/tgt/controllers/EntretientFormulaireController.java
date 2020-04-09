@@ -13,14 +13,18 @@ import com.esprit.pidev.tgt.services.EntretientService;
 import com.esprit.pidev.tgt.utils.Rooting;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXTimePicker;
 import java.net.URL;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
@@ -40,6 +44,8 @@ private Statement statement;
     private JFXButton affecter_une_date;
     @FXML
     private Label nom_condidat;
+    @FXML
+    private JFXTimePicker timeEnt;
 
     /**
      * Initializes the controller class.
@@ -52,7 +58,8 @@ private Statement statement;
     @FXML
     void affecter_une_date(ActionEvent event) {
         LocalDate dateEnt = this.dateEnt.getValue();
-        Entretien entretient=new Entretien(0, dateEnt, StatutEnt.en_cour, 0);
+        LocalTime timeEnt = this.timeEnt.getValue();
+        Entretien entretient=new Entretien(0, LocalDateTime.of(dateEnt, timeEnt), StatutEnt.en_cour, 0);
         System.out.println(entretient);
          try {
             this.candidat.setEntretient(entretient);

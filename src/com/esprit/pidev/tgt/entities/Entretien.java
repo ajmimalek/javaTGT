@@ -6,7 +6,7 @@
 package com.esprit.pidev.tgt.entities;
 
 import com.esprit.pidev.tgt.enumeration.StatutEnt;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
@@ -15,19 +15,19 @@ import java.util.Objects;
  */
 public class Entretien {
     private int id;
-    private LocalDate dateEnt;
+    private LocalDateTime dateEnt;
     private StatutEnt statutEnt;
     private float noteEnt;
     private Candidat candidat;
 
-    public Entretien(int id, LocalDate dateEnt, StatutEnt statutEnt, float noteEnt) {
+    public Entretien(int id, LocalDateTime dateEnt, StatutEnt statutEnt, float noteEnt) {
         this.id = id;
         this.dateEnt = dateEnt;
         this.statutEnt = statutEnt;
         this.noteEnt = noteEnt;
     }
 
-    public Entretien(int id, LocalDate dateEnt, StatutEnt statutEnt, float noteEnt, Candidat candidat) {
+    public Entretien(int id, LocalDateTime dateEnt, StatutEnt statutEnt, float noteEnt, Candidat candidat) {
         this.id = id;
         this.dateEnt = dateEnt;
         this.statutEnt = statutEnt;
@@ -44,11 +44,11 @@ public class Entretien {
         this.id = id;
     }
 
-    public LocalDate getDateEnt() {
+    public LocalDateTime getDateEnt() {
         return dateEnt;
     }
 
-    public void setDateEnt(LocalDate dateEnt) {
+    public void setDateEnt(LocalDateTime dateEnt) {
         this.dateEnt = dateEnt;
     }
 

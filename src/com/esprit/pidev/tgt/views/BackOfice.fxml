@@ -95,7 +95,7 @@
                                     <Button fx:id="rechercheEntretient" layoutX="507.0" layoutY="25.0" mnemonicParsing="false" onAction="#rechercheEntretient" text="recherche" />
                                     <Button fx:id="modifierEntretient" layoutX="36.0" layoutY="25.0" mnemonicParsing="false" onAction="#modifierEntretient" text="modifier" />
                                     <Button fx:id="suprimerEntrretient" layoutX="127.0" layoutY="25.0" mnemonicParsing="false" onAction="#suprimerEntrretient" text="suprimer" />
-                                    <Button layoutX="277.0" layoutY="25.0" mnemonicParsing="false" onAction="#makeCall" prefHeight="31.0" prefWidth="146.0" text="call meaning" />
+                                    <Button layoutX="277.0" layoutY="25.0" mnemonicParsing="false" onAction="#makeCall" prefHeight="31.0" prefWidth="146.0" text="meeting room" />
                                  </children></AnchorPane>
                            </content>
                         </Tab>
