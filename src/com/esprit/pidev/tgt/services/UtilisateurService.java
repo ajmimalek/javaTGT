@@ -28,6 +28,7 @@ public class UtilisateurService  implements IUtilisateurService{
     private Statement statement;
     private CompteService compteService = new CompteService();
 
+
     public UtilisateurService() {
         try {
             this.statement = DataSource.getInstance().getConnection().createStatement();
@@ -81,8 +82,14 @@ public class UtilisateurService  implements IUtilisateurService{
     }
 
     @Override
-    public boolean update(Utilisateur t) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean update(Utilisateur utilisateur) throws SQLException {
+         String reqUpdate="UPDATE `utilisateur` SET `nom`='"+utilisateur.getNom()+"',`prenom`='"+utilisateur.getPrenom()+"',`numTel`='"+utilisateur.getNumTel()+"',`email`='"+utilisateur.getEmail()+"' WHERE id = '"+utilisateur.getId()+"'"; 
+        return statement.executeUpdate(reqUpdate)>0; //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void delete(Utilisateur utilisateur) throws SQLException {
+         statement.executeUpdate("DELETE FROM `utilisateur` WHERE id =" + utilisateur.getId()); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -94,4 +101,5 @@ public class UtilisateurService  implements IUtilisateurService{
     public void deleteAll() throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
 }

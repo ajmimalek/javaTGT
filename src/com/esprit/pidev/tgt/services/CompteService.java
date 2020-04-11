@@ -35,7 +35,7 @@ public class CompteService  implements ICompteService{
     @Override
     public int save(Compte compte) throws SQLException{
         String req = "INSERT INTO `compte` (`id`, `username`, `password`,`roleType`)"
-                +" VALUES (NULL, '"+compte.getUsername()+"', '"+compte.getPassword()+"','"+"talon"+"')";
+                +" VALUES (NULL, '"+compte.getUsername()+"', '"+compte.getPassword()+"','"+compte.getRoleType().talon+"')";
         PreparedStatement preparedStatement= DataSource.getInstance().getConnection().prepareStatement(req, Statement.RETURN_GENERATED_KEYS);
         preparedStatement.executeUpdate();
         
@@ -65,4 +65,6 @@ public class CompteService  implements ICompteService{
             Role roleType = Role.valueOf(result.getString("roleType"));
         return new Compte(id, username, password, roleType);
     }
+
+   
 }

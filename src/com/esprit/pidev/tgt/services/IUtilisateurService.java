@@ -12,7 +12,9 @@ import java.sql.SQLException;
  *
  * @author goldzeo
  */
-public interface IUtilisateurService extends IServices<Utilisateur> {
+public interface IUtilisateurService extends IServices<Utilisateur>{
      public int save(Utilisateur utilisateur) throws SQLException;
+     public boolean update(Utilisateur t) throws SQLException;
+     public void delete(Utilisateur utilisateur) throws SQLException;
      
 }

@@ -8,6 +8,9 @@ package com.esprit.pidev.tgt.controllers;
 import com.esprit.pidev.tgt.entities.Compte;
 import com.esprit.pidev.tgt.entities.Utilisateur;
 import com.esprit.pidev.tgt.enumeration.Genre;
+import com.esprit.pidev.tgt.enumeration.Role;
+import com.esprit.pidev.tgt.services.CompteService;
+import com.esprit.pidev.tgt.services.ICompteService;
 import com.esprit.pidev.tgt.services.IUtilisateurService;
 import com.esprit.pidev.tgt.services.UtilisateurService;
 import com.esprit.pidev.tgt.utils.Rooting;
@@ -26,6 +29,8 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Side;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 
@@ -37,6 +42,7 @@ import javafx.stage.Stage;
 public class LoginController implements Initializable {
 
     private IUtilisateurService  utilisateurService = new UtilisateurService();
+    private ICompteService  compteService = new CompteService();
     @FXML
     private JFXTextField loginUsername;
     @FXML
@@ -78,7 +84,25 @@ public class LoginController implements Initializable {
 
     @FXML
     private void login(ActionEvent event) {
-        Rooting.navigate("main", "Main");
+       try{
+        Compte compte = compteService.findByUsername(this.loginUsername.getText());
+        
+        if (compte!= null && compte.getPassword().equals(this.loginPassword.getText())){
+            System.out.println(compte);
+            Rooting.navigate("", "BackOfice");
+            closeStage();
+         
+        }else{
+       //    passValidator.getItems().clear();
+       //    passValidator.setAutoHide(true);
+       //    passValidator.getItems().add(new MenuItem("Please enter Password"));
+       //    passValidator.show(confirmePassword, Side.RIGHT, 10, 0);
+       //    loginUsername.getStyleClass().add("wrong-credentials");
+       //    loginPassword.getStyleClass().add("wrong-credentials");
+        }
+        }catch(SQLException ex){
+        
+        }
         closeStage();
     }
 

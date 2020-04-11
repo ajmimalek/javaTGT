@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="754.0" prefWidth="1120.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.pidev.tgt.controllers.BackOficeProfileController">
+   <children>
+      <SplitPane dividerPositions="0.18812785388127853" layoutX="14.0" layoutY="13.0" prefHeight="737.0" prefWidth="1097.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Button fx:id="gestionCandidature" layoutY="164.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" text="gestion de candidature" />
+                  <Button layoutY="242.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" text="gestion d'organisation" />
+                  <Button layoutX="1.0" layoutY="321.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" text="gestion d'Utilisateur" />
+                  <Button layoutX="1.0" layoutY="399.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" text="gestion de Publicatiion" />
+                  <Button layoutY="477.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" text="gestion de Produit " />
+                  <Button layoutY="557.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" text="Gestion de formation" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TabPane layoutX="-8.0" prefHeight="735.0" prefWidth="885.0" tabClosingPolicy="UNAVAILABLE">
+                     <tabs>
+                        <Tab text="afficher list des utilisateurs">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <ScrollPane layoutX="6.0" layoutY="94.0" prefHeight="612.0" prefWidth="873.0">
+                                       <content>
+                                          <TableView fx:id="tableViewUtilisateur" prefHeight="589.0" prefWidth="1184.0">
+                                             <columns>
+                                                <TableColumn fx:id="nom" prefWidth="112.0" text="nom" />
+                                                <TableColumn fx:id="prenom" prefWidth="77.0" text="prenom" />
+                                                <TableColumn fx:id="date" maxWidth="302.0" minWidth="0.0" prefWidth="139.0" text="date de naissance " />
+                                                <TableColumn fx:id="genre" prefWidth="105.0" text="genre " />
+                                                <TableColumn fx:id="numero" minWidth="0.0" prefWidth="92.0" text="numero tel" />
+                                                <TableColumn fx:id="email" prefWidth="116.0" text="email" />
+                                                <TableColumn fx:id="avatarUrl" prefWidth="116.0" text="avatarUrl" />
+                                                <TableColumn fx:id="username" prefWidth="112.0" text="userName" />
+                                                <TableColumn fx:id="password" prefWidth="90.0" text="password" />
+                                             </columns>
+                                          </TableView>
+                                       </content>
+                                    </ScrollPane>
+                                    <TextField fx:id="l1" layoutX="477.0" layoutY="50.0" prefHeight="31.0" prefWidth="260.0" />
+                                    <Button fx:id="recherchecandidat" layoutX="477.0" layoutY="22.0" mnemonicParsing="false" text="recherche" />
+                                    <Button fx:id="modifier" layoutX="22.0" layoutY="22.0" mnemonicParsing="false" onAction="#modifier" text="modifier l'utilisateur" />
+                                    <Button fx:id="suprimer" layoutX="171.0" layoutY="22.0" mnemonicParsing="false" onAction="#suprimer" text="suprimer" />
+                                    <Button fx:id="attribuerRole" layoutX="272.0" layoutY="19.0" mnemonicParsing="false" onAction="#attRole" prefHeight="31.0" prefWidth="158.0" text="attriubuer role" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab text="aficher liste des comptes ">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TableView layoutY="86.0" prefHeight="430.0" prefWidth="479.0">
+                                      <columns>
+                                        <TableColumn prefWidth="139.0" text="UserName" />
+                                        <TableColumn prefWidth="178.0" text="Passowrd" />
+                                          <TableColumn prefWidth="150.0" text="Role" />
+                                      </columns>
+                                    </TableView>
+                                    <Button layoutX="14.0" layoutY="34.0" mnemonicParsing="false" text="suuprimer compte" />
+                                    <Button layoutX="155.0" layoutY="34.0" mnemonicParsing="false" text="modifier compte " />
+                                    <Button layoutX="329.0" layoutY="14.0" mnemonicParsing="false" text="chercher compte " />
+                                    <TextField layoutX="329.0" layoutY="47.0" />
+                                 </children></AnchorPane>
+                           </content>
+                        </Tab>
+                     </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

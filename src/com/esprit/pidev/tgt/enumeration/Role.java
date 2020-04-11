@@ -10,7 +10,7 @@ package com.esprit.pidev.tgt.enumeration;
  * @author goldzeo
  */
 public enum Role {
-    Talent,
+    talon,
     organisation,
     Admin;
 }

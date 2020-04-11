@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp64/www/marsaoui/javaTGT/src/com/esprit/pidev/tgt/controllers/CondidatFormulaireController.java</file>
-            <file>file:/C:/wamp64/www/marsaoui/javaTGT/src/com/esprit/pidev/tgt/services/EntretientService.java</file>
-            <file>file:/C:/wamp64/www/marsaoui/javaTGT/src/com/esprit/pidev/tgt/services/CandidatService.java</file>
-            <file>file:/C:/wamp64/www/marsaoui/javaTGT/src/com/esprit/pidev/tgt/services/ICandidatService.java</file>
-            <file>file:/C:/wamp64/www/marsaoui/javaTGT/src/com/esprit/pidev/tgt/controllers/EspaceEntretientController.java</file>
+            <file>file:/C:/wamp64/www/marsaoui/javaTGT/src/com/esprit/pidev/tgt/controllers/ModifierProfileController.java</file>
+            <file>file:/C:/wamp64/www/marsaoui/javaTGT/src/com/esprit/pidev/tgt/controllers/BackOficeProfileController.java</file>
+            <file>file:/C:/wamp64/www/marsaoui/javaTGT/src/com/esprit/pidev/tgt/controllers/ValidationDeSuppressionProfileController.java</file>
+            <file>file:/C:/wamp64/www/marsaoui/javaTGT/src/com/esprit/pidev/tgt/services/UtilisateurService.java</file>
+            <file>file:/C:/wamp64/www/marsaoui/javaTGT/src/com/esprit/pidev/tgt/controllers/LoginController.java</file>
             <file>file:/C:/wamp64/www/marsaoui/javaTGT/src/com/esprit/pidev/tgt/controllers/BackOficeController.java</file>
         </group>
     </open-files>
