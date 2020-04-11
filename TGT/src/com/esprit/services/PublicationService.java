@@ -29,13 +29,14 @@ public class PublicationService implements IServices<Publication> {
     public void ajouter(Publication t) {
         try {
             String req = "ALTER TABLE publication AUTO_INCREMENT = "+ Statement.RETURN_GENERATED_KEYS;
-            String requete = "INSERT INTO publication (contenu,video,localisation,datePub,ratingPub) VALUES (?,?,?,?,0.0)";
+            String requete = "INSERT INTO publication (contenu,video,localisation,datePub,ratingPub) VALUES (?,?,?,?,?)";
             PreparedStatement ps = connection.prepareStatement(requete);
             PreparedStatement ps1 = connection.prepareStatement(req);
             ps.setString(1 , t.getContenu() );
             ps.setString(2, t.getVideo());
             ps.setString(3, t.getLocalisation());
             ps.setTimestamp(4, t.getDatePub());
+            ps.setFloat(5, calculRatingPub(t));
             ps1.execute(req);
             ps.executeUpdate();
             System.out.println("Publication ajoutée !");
