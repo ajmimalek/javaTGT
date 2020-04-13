@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.views.BackOfficeController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.controllers.BackOfficeController">
       <children>
       <SplitPane dividerPositions="0.18904109589041096" layoutX="14.0" layoutY="13.0" prefHeight="737.0" prefWidth="1097.0">
         <items>
@@ -33,17 +33,18 @@
                         <Font name="Roboto Bold" size="26.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtnomcat" layoutX="39.0" layoutY="129.0" prefHeight="26.0" prefWidth="350.0" promptText="Ajouter une nouvelle catégorie" />
-                  <Button fx:id="btnajoutcat" layoutX="424.0" layoutY="139.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="98.0" text="Ajouter">
+                  <TextField fx:id="txtnomcat" layoutX="213.0" layoutY="132.0" prefHeight="26.0" prefWidth="350.0" promptText="Ajouter une nouvelle catégorie" />
+                  <Button fx:id="btnajoutcat" layoutX="665.0" layoutY="129.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="98.0" text="Ajouter">
                      <font>
                         <Font name="Roboto Bold" size="16.0" />
                      </font>
                   </Button>
-                  <TableView fx:id="lscatégories" layoutX="144.0" layoutY="216.0" prefHeight="382.0" prefWidth="583.0">
+                  <TableView fx:id="lscatégories" layoutX="188.0" layoutY="236.0" prefHeight="382.0" prefWidth="526.0" stylesheets="@BackOffice.css">
                     <columns>
-                      <TableColumn fx:id="idcat" prefWidth="95.0" text="ID catégorie" />
+                        <TableColumn fx:id="idcat" prefWidth="95.0" text="ID catégorie" />
                       <TableColumn fx:id="nomcat" prefWidth="207.0" text="Catégories" />
-                        <TableColumn prefWidth="165.0" text="Actions" />
+                        <TableColumn fx:id="update" prefWidth="111.0" text="Modifier" />
+                        <TableColumn fx:id="delete" prefWidth="111.0" text="Supprimer" />
                     </columns>
                   </TableView>
                </children>

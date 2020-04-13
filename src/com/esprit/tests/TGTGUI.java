@@ -7,27 +7,23 @@ package com.esprit.tests;
 
 import java.io.IOException;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 /**
  *
  * @author Malek
  */
-public class PIDEVGUI extends Application {
+public class TGTGUI extends Application {
     
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent  root = FXMLLoader.load(getClass().getResource("../views/AjoutPersonne.fxml"));
+        Parent  root = FXMLLoader.load(getClass().getResource("../views/BackOffice.fxml"));
         Scene scene = new Scene(root);
         
-        primaryStage.setTitle("PIDEV");
+        primaryStage.setTitle("Tunisians Got Talents");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

@@ -5,6 +5,8 @@
  */
 package com.esprit.models;
 
+import javafx.scene.control.Button;
+
 /**
  *
  * @author Malek
@@ -13,10 +15,14 @@ public class CatégoriePublication {
     
     private int id_cat;
     private String nomCat;
+    private Button update;
+    private Button delete;
 
     public CatégoriePublication(int id_cat, String nomCat) {
         this.id_cat = id_cat;
         this.nomCat = nomCat;
+        update = new Button("Modifier");
+        delete = new Button("Supprimer");
     }
 
     public CatégoriePublication(int id_cat) {
@@ -25,6 +31,12 @@ public class CatégoriePublication {
     
     public CatégoriePublication(String nomCat) {
         this.nomCat = nomCat;
+    }
+
+    public CatégoriePublication(String nomCat, Button update, Button delete) {
+        this.nomCat = nomCat;
+        this.update = update;
+        this.delete = delete;
     }
 
     public int getId_cat() {
