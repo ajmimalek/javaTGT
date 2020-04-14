@@ -13,6 +13,7 @@ import com.esprit.pidev.tgt.services.CompteService;
 import com.esprit.pidev.tgt.services.ICompteService;
 import com.esprit.pidev.tgt.services.IUtilisateurService;
 import com.esprit.pidev.tgt.services.UtilisateurService;
+import com.esprit.pidev.tgt.utils.ConectedUser;
 import com.esprit.pidev.tgt.utils.Rooting;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
@@ -85,10 +86,11 @@ public class LoginController implements Initializable {
     @FXML
     private void login(ActionEvent event) {
        try{
-        Compte compte = compteService.findByUsername(this.loginUsername.getText());
+        Utilisateur utilisateur = utilisateurService.findByUsername(this.loginUsername.getText());
         
-        if (compte!= null && compte.getPassword().equals(this.loginPassword.getText())){
-            System.out.println(compte);
+        if (utilisateur!= null && utilisateur.getCompte().getPassword().equals(this.loginPassword.getText())){
+            System.out.println(utilisateur);
+            ConectedUser.setUtilisateur(utilisateur);
             Rooting.navigate("", "BackOfice");
             closeStage();
          
@@ -121,6 +123,7 @@ public class LoginController implements Initializable {
         System.out.println("com.esp");
          try {
             utilisateurService.save(utilisateur);
+            ConectedUser.setUtilisateur(utilisateur);
             Rooting.navigate("main", "FXML");
             closeStage();
         } catch (SQLException ex) {

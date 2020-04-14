@@ -16,5 +16,6 @@ public interface IUtilisateurService extends IServices<Utilisateur>{
      public int save(Utilisateur utilisateur) throws SQLException;
      public boolean update(Utilisateur t) throws SQLException;
      public void delete(Utilisateur utilisateur) throws SQLException;
+    public Utilisateur findByUsername(String userName) throws SQLException;
      
 }

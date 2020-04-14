@@ -150,8 +150,4 @@ public class BackOficeProfileController implements Initializable {
     }
 
     }  
-
-    @FXML
-    private void attRole(ActionEvent event) {
-    }
 }

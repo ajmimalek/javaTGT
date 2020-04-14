@@ -69,4 +69,9 @@ public class EntretientService  implements IEntretientService{
            float noteEnt =result.getFloat("noteEnt"); 
             return new Entretien(id, dateEnt, statutEnt, noteEnt);
     }
+    
+    public boolean notter(Entretien entretien) throws SQLException {
+        String reqUpdate="UPDATE `entretien` SET ` `statutEnt`="+entretien.getStatutEnt().accepte+",`noteEnt`="+entretien.getNoteEnt()+" WHERE `id` =" +  ;
+         return statement.executeUpdate(reqUpdate)>0; //To change body of generated methods, choose Tools | Templates.
+    }
 }

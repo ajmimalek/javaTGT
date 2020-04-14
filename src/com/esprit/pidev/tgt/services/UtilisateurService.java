@@ -101,5 +101,16 @@ public class UtilisateurService  implements IUtilisateurService{
     public void deleteAll() throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+     public Utilisateur findByUsername(String username) throws SQLException {
+         Compte compte = compteService.findByUsername(username);
+         Utilisateur utilisateur = null;
+         if(compte!=null){
+        ResultSet result = statement.executeQuery("SELECT * FROM `utilisateur` WHERE idCompte = '" +compte.getId() +"'");
+        System.out.println(result);
+        utilisateur = result.next()? extractUtilisateur(result) : null;}
+         
+        return utilisateur; 
+    }
 
 }

@@ -31,6 +31,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.util.Callback;
 
 /**
@@ -212,6 +213,7 @@ public class BackOficeController implements Initializable {
          
          FXMLLoader loader = Rooting.navigate("modif", "EntretientFormulaire");
         EntretientFormulaireController controller = (EntretientFormulaireController) loader.getController();
+        
          controller.initfields(selectedCandidat,this); 
         }
     }

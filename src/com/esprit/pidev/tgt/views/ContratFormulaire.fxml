@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="594.0" prefWidth="598.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.pidev.tgt.controllers.ContratFormulaireController">
+   <children>
+      <JFXTextField fx:id="salaire" focusColor="#7d0154ab" labelFloat="true" layoutX="59.0" layoutY="230.0" prefHeight="26.0" prefWidth="152.0" promptText="Salaire" unFocusColor="#3c3757">
+         <font>
+            <Font name="Comic Sans MS" size="12.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="durer" focusColor="#7d0154ab" labelFloat="true" layoutX="221.0" layoutY="327.0" prefHeight="26.0" prefWidth="152.0" promptText="durer de contrat" unFocusColor="#3c3757">
+         <font>
+            <Font name="Comic Sans MS" size="12.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton fx:id="ajoutCondidat" buttonType="RAISED" layoutX="230.0" layoutY="422.0" onAction="#ajoutCondidat" prefHeight="31.0" prefWidth="152.0" style="-fx-background-radius: 8; -fx-background-color: #6e033e;" text="Ajouter" textFill="#f8f8f8" />
+      <Label layoutX="109.0" layoutY="36.0" prefHeight="49.0" prefWidth="424.0" text="Remplire le formulaire du contart" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="typecontrat" layoutX="361.0" layoutY="228.0" prefHeight="31.0" prefWidth="152.0" promptText="type Contrat" />
+      <Label fx:id="nomcand" layoutX="59.0" layoutY="127.0" prefHeight="21.0" prefWidth="140.0" />
+      <Label fx:id="nomcast" layoutX="361.0" layoutY="127.0" prefHeight="21.0" prefWidth="140.0" />
+   </children>
+</AnchorPane>
