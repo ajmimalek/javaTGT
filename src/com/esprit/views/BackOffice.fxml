@@ -1,52 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.controllers.BackOfficeController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.controllers.BackOfficeController">
       <children>
       <SplitPane dividerPositions="0.18904109589041096" layoutX="14.0" layoutY="13.0" prefHeight="737.0" prefWidth="1097.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="735.0" prefWidth="289.0">
                <children>
-                  <Button fx:id="gestionCandidature" layoutY="164.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" style="-fx-background-color: black;" text="gestion de candidature">
+                  <Button fx:id="gestionCandidature" layoutY="164.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" style="-fx-background-color: black;" text="Gestion des candidatures" textFill="WHITE">
                      <font>
-                        <Font name="Roboto" size="12.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font></Button>
-                  <Button layoutY="242.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" style="-fx-background-color: black;" text="gestion d'organisation" />
-                  <Button layoutX="1.0" layoutY="321.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" style="-fx-background-color: black;" text="gestion d'Utilisateur" />
-                  <Button layoutX="1.0" layoutY="399.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" style="-fx-background-color: black;" text="Catégories des Publications" />
-                  <Button layoutY="477.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" style="-fx-background-color: black;" text="gestion de Produit " />
-                  <Button layoutY="557.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" style="-fx-background-color: black;" text="Gestion de formation" />
+                  <Button layoutY="242.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" style="-fx-background-color: black;" text="Gestion d'organisation" textFill="WHITE" />
+                  <Button layoutX="1.0" layoutY="321.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" style="-fx-background-color: black;" text="gestion d'Utilisateur" textFill="WHITE" />
+                  <Button layoutX="1.0" layoutY="399.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" style="-fx-background-color: black;" text="Catégories des Publications" textFill="WHITE" />
+                  <Button layoutY="477.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" style="-fx-background-color: black;" text="Gestion des Produits " textFill="WHITE" />
+                  <Button layoutY="557.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" style="-fx-background-color: black;" text="Gestion des formations" textFill="WHITE" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="735.0" prefWidth="857.0">
                <children>
-                  <Label layoutX="206.0" layoutY="47.0" text="Gestion des Catégories des Publications" textAlignment="CENTER" textFill="#00c292">
+                  <Label layoutX="190.0" layoutY="47.0" prefHeight="38.0" prefWidth="489.0" text="Gestion des Catégories des Publications" textAlignment="CENTER" textFill="#00c292">
                      <font>
-                        <Font name="Roboto Bold" size="26.0" />
+                        <Font size="26.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtnomcat" layoutX="213.0" layoutY="132.0" prefHeight="26.0" prefWidth="350.0" promptText="Ajouter une nouvelle catégorie" />
-                  <Button fx:id="btnajoutcat" layoutX="665.0" layoutY="129.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="98.0" text="Ajouter">
-                     <font>
-                        <Font name="Roboto Bold" size="16.0" />
-                     </font>
-                  </Button>
-                  <TableView fx:id="lscatégories" layoutX="188.0" layoutY="236.0" prefHeight="382.0" prefWidth="526.0" stylesheets="@BackOffice.css">
+                  <TableView fx:id="lscatégories" layoutX="221.0" layoutY="241.0" prefHeight="382.0" prefWidth="444.0">
                     <columns>
-                        <TableColumn fx:id="idcat" prefWidth="95.0" text="ID catégorie" />
-                      <TableColumn fx:id="nomcat" prefWidth="207.0" text="Catégories" />
-                        <TableColumn fx:id="update" prefWidth="111.0" text="Modifier" />
-                        <TableColumn fx:id="delete" prefWidth="111.0" text="Supprimer" />
+                      <TableColumn fx:id="nomcat" prefWidth="225.0" text="Catégories" />
+                        <TableColumn fx:id="delete" minWidth="0.0" prefWidth="171.0" text="Supprimer" />
                     </columns>
                   </TableView>
+                  <JFXButton fx:id="btnajoutcat" buttonType="RAISED" layoutX="590.0" layoutY="132.0" onAction="#AjouterCatégorie" prefHeight="50.0" prefWidth="116.0" ripplerFill="WHITE" style="-fx-background-color: #00c292;" text="Ajouter" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXTextField fx:id="txtnomcat" focusColor="#00c292" layoutX="202.0" layoutY="142.0" prefHeight="31.0" prefWidth="354.0" promptText="Ajouter une nouvelle catégorie" />
                </children>
             </AnchorPane>
         </items>

@@ -5,8 +5,10 @@
  */
 package com.esprit.services;
 
+import com.esprit.controllers.BackOfficeController;
 import com.esprit.models.CatégoriePublication;
 import com.esprit.utils.DataSource;
+import com.jfoenix.controls.JFXButton;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,6 +16,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -53,6 +57,19 @@ public class CatégoriePublicationService implements IServices<CatégoriePublica
             System.err.println(ex.getMessage());
         }
     }
+    
+    public void supprimerParID(int id_cat){
+        try {
+            String requete = "DELETE FROM categoriePublication WHERE id_cat=?";
+            PreparedStatement pst = connection.prepareStatement(requete);
+            pst.setInt(1, id_cat);
+            pst.executeUpdate();
+            System.out.println("Catégorie supprimée !");
+
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
 
     @Override
     public void modifier(CatégoriePublication t) {
@@ -78,7 +95,15 @@ public class CatégoriePublicationService implements IServices<CatégoriePublica
             PreparedStatement pst = connection.prepareStatement(requete);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                list.add(new CatégoriePublication(rs.getInt(1), rs.getString(2)));
+                JFXButton button = new JFXButton("Supprimer");
+                button.setStyle("-fx-background-color: #8B0000; -fx-text-fill: white;");
+                int current_row_number = rs.getRow();
+                button.setId(Integer.toString(current_row_number));
+                list.add(new CatégoriePublication(rs.getInt(1),rs.getString(2), button));
+                button.setOnAction((event) -> {
+                        this.supprimerParID(Integer.parseInt(button.getId()));
+                        BackOfficeController.oblist.remove(Integer.parseInt(button.getId()));
+                });
             }
 
         } catch (SQLException ex) {

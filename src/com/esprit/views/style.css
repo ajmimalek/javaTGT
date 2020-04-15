@@ -1,0 +1,7 @@
+.head-background
+{
+    -fx-background-image: url("ressources/breadcumb5.jpg");  
+    -fx-background-size: 1271 312;
+    -fx-background-position: center center;
+    -fx-background-repeat: stretch;
+}

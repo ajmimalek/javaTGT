@@ -5,7 +5,7 @@
  */
 package com.esprit.models;
 
-import javafx.scene.control.Button;
+import com.jfoenix.controls.JFXButton;
 
 /**
  *
@@ -15,14 +15,12 @@ public class CatégoriePublication {
     
     private int id_cat;
     private String nomCat;
-    private Button update;
-    private Button delete;
+    private JFXButton delete;
 
-    public CatégoriePublication(int id_cat, String nomCat) {
+    public CatégoriePublication(int id_cat, String nomCat, JFXButton delete) {
         this.id_cat = id_cat;
         this.nomCat = nomCat;
-        update = new Button("Modifier");
-        delete = new Button("Supprimer");
+        this.delete = delete;
     }
 
     public CatégoriePublication(int id_cat) {
@@ -33,9 +31,8 @@ public class CatégoriePublication {
         this.nomCat = nomCat;
     }
 
-    public CatégoriePublication(String nomCat, Button update, Button delete) {
+    public CatégoriePublication(String nomCat, JFXButton delete) {
         this.nomCat = nomCat;
-        this.update = update;
         this.delete = delete;
     }
 
@@ -54,6 +51,16 @@ public class CatégoriePublication {
     public void setNomCat(String nomCat) {
         this.nomCat = nomCat;
     }
+
+    public JFXButton getDelete() {
+        return delete;
+    }
+
+    public void setDelete(JFXButton delete) {
+        this.delete = delete;
+    }
+    
+    
 
     @Override
     public String toString() {
