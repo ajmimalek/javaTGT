@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esprit.controllers;
+package com.esprit.pidev.tgt.controllers;
 
 import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
@@ -25,7 +25,7 @@ import javafx.scene.layout.VBox;
  *
  * @author oXCToo
  */
-public class HomeController implements Initializable {
+public class PublicationsController implements Initializable {
     
     
       @FXML
@@ -44,10 +44,10 @@ public class HomeController implements Initializable {
     private void AjouterPublication(ActionEvent event) {
         pnl_scroll.getChildren().clear();
           try {
-              Node n = (Node)FXMLLoader.load(getClass().getResource("/com/esprit/views/AjoutPublication.fxml"));
+              Node n = (Node)FXMLLoader.load(getClass().getResource("/com/esprit/pidev/tgt/views/AjoutPublication.fxml"));
               pnl_scroll.getChildren().add(n);
           } catch (IOException ex) {
-              Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+              Logger.getLogger(PublicationsController.class.getName()).log(Level.SEVERE, null, ex);
           }
     }
 
@@ -60,11 +60,11 @@ public class HomeController implements Initializable {
         for(int i = 0; i<10; i++)
         {
             try {
-                nodes[i] = (Node)FXMLLoader.load(getClass().getResource("/com/esprit/views/Item.fxml"));
+                nodes[i] = (Node)FXMLLoader.load(getClass().getResource("/com/esprit/pidev/tgt/views/Item.fxml"));
                pnl_scroll.getChildren().add(nodes[i]);
                 
             } catch (IOException ex) {
-                Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PublicationsController.class.getName()).log(Level.SEVERE, null, ex);
             }
            
         }  

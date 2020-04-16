@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="683.0" prefWidth="1263.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.pidev.tgt.controllers.PublicationsController">
+   <children>
+      <VBox layoutX="14.0" layoutY="210.0" prefHeight="273.0" prefWidth="261.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="54.0" prefWidth="265.0" style="-fx-background-color: linear-gradient(to right, #cc1573, #5722a9);" text="Menu Publications" textFill="WHITE">
+               <font>
+                  <Font name="Raleway Bold" size="16.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="btnadd" onAction="#AjouterPublication" prefHeight="109.0" prefWidth="261.0" text="Créer une publication vidéo" textFill="#bd177a">
+               <font>
+                  <Font name="Raleway Bold" size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnlist" onAction="#AfficherPublications" prefHeight="111.0" prefWidth="261.0" text="Afficher mes publications" textFill="#bd177a">
+               <font>
+                  <Font name="Raleway Bold" size="16.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </VBox>
+      <ScrollPane layoutX="288.0" layoutY="229.0" prefHeight="665.0" prefWidth="971.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="288.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="14.0">
+         <content>
+            <VBox fx:id="pnl_scroll" prefHeight="662.0" prefWidth="972.0" spacing="20.0" style="-fx-background-color: #fff;" />
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

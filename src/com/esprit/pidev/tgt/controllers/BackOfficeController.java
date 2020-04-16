@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esprit.controllers;
+package com.esprit.pidev.tgt.controllers;
 
-import com.esprit.models.CatégoriePublication;
-import com.esprit.services.CatégoriePublicationService;
+import com.esprit.pidev.tgt.entities.CatégoriePublication;
+import com.esprit.pidev.tgt.services.CatégoriePublicationService;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;

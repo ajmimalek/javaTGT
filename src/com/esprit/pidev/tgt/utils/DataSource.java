@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esprit.utils;
+package com.esprit.pidev.tgt.utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,7 +17,7 @@ import java.sql.SQLException;
 public class DataSource {
     private final String login = "root";
     private final String mdp = "";
-    private final String url = "jdbc:mariadb://localhost:3306/tgtbd";
+    private final String url = "jdbc:mysql://localhost:3308/tgtbd";
     private Connection connection;
     //2éme étape: Créer une attribut static du meme type de la classe
     private static DataSource instance;

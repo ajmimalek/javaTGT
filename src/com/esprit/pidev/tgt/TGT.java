@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esprit.tests;
+package com.esprit.pidev.tgt;
 
 import java.io.IOException;
 import javafx.application.Application;
@@ -20,11 +20,11 @@ import javafx.stage.StageStyle;
  *
  * @author Malek
  */
-public class TGTGUI extends Application {
+public class TGT extends Application {
     
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent  root = FXMLLoader.load(getClass().getResource("/com/esprit/views/scene1.fxml"));
+        Parent  root = FXMLLoader.load(getClass().getResource("views/scene1.fxml"));
         Scene scene = new Scene(root);
         
         //Appliquer l'effet transparent pour enlever la barre Windows 

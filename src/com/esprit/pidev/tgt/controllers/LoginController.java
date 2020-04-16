@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esprit.controllers;
+package com.esprit.pidev.tgt.controllers;
 
 import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
@@ -179,7 +179,7 @@ public class LoginController implements Initializable {
         Stage stage = new Stage();
         Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource("/com/esprit/views/Home.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/../../../../../Main.fxml"));
         } catch (IOException ex) {
             System.err.println(ex.getMessage());
         }

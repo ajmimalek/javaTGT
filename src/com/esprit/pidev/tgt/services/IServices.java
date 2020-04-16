@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esprit.services;
+package com.esprit.pidev.tgt.services;
 
 import java.util.List;
 

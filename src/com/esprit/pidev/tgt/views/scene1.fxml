@@ -5,7 +5,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" fx:id="splash" prefHeight="462.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.views.Scene1Controller">
+<AnchorPane id="AnchorPane" fx:id="splash" prefHeight="462.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.pidev.tgt.controllers.Scene1Controller">
    <children>
       <ImageView fitHeight="462.0" fitWidth="814.0" pickOnBounds="true" preserveRatio="true">
          <image>

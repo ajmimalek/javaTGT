@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esprit.services;
+package com.esprit.pidev.tgt.services;
 
-import com.esprit.controllers.BackOfficeController;
-import com.esprit.models.CatégoriePublication;
-import com.esprit.utils.DataSource;
+import com.esprit.pidev.tgt.controllers.BackOfficeController;
+import com.esprit.pidev.tgt.entities.CatégoriePublication;
+import com.esprit.pidev.tgt.utils.DataSource;
 import com.jfoenix.controls.JFXButton;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

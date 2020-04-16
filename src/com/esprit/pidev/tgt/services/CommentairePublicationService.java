@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esprit.services;
-import com.esprit.models.CommentairePublication;
-import com.esprit.utils.DataSource;
+package com.esprit.pidev.tgt.services;
+import com.esprit.pidev.tgt.entities.CommentairePublication;
+import com.esprit.pidev.tgt.utils.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

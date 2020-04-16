@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esprit.services;
+package com.esprit.pidev.tgt.services;
 
-import com.esprit.models.Publication;
-import com.esprit.utils.DataSource;
+import com.esprit.pidev.tgt.entities.Publication;
+import com.esprit.pidev.tgt.utils.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

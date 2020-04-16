@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esprit.controllers;
+package com.esprit.pidev.tgt.controllers;
 
 import java.io.IOException;
 import java.net.URL;
@@ -17,7 +17,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -43,7 +42,7 @@ public class Scene1Controller implements Initializable {
                     Stage stage = new Stage();
                     Parent root = null;
                     try {
-                        root = FXMLLoader.load(ShowSplashScreen.this.getClass().getResource("/com/esprit/views/login.fxml"));
+                        root = FXMLLoader.load(ShowSplashScreen.this.getClass().getResource("/com/esprit/pidev/tgt/views/login.fxml"));
                     } catch (IOException ex) {
                         System.err.println(ex.getMessage());
                     }
