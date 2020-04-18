@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="754.0" prefWidth="1120.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.pidev.tgt.controllers.ListFormation_1Controller">
+   <children>
+      <SplitPane dividerPositions="0.18812785388127853" layoutX="14.0" layoutY="13.0" prefHeight="737.0" prefWidth="1097.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #3B3159;">
+               <children>
+                  <Button fx:id="gestionCandidature" layoutY="221.0" mnemonicParsing="false" onAction="#candidature" prefHeight="70.0" prefWidth="202.0" stylesheets="@style.css" text="gestion de candidature" />
+                  <Button layoutY="299.0" mnemonicParsing="false" onAction="#organisation" prefHeight="70.0" prefWidth="202.0" stylesheets="@style.css" text="gestion d'organisation" />
+                  <Button layoutX="1.0" layoutY="378.0" mnemonicParsing="false" onAction="#profile" prefHeight="70.0" prefWidth="202.0" stylesheets="@style.css" text="gestion d'Utilisateur" />
+                  <Button layoutX="1.0" layoutY="456.0" mnemonicParsing="false" onAction="#publication" prefHeight="70.0" prefWidth="202.0" stylesheets="@style.css" text="gestion de Publicatiion" />
+                  <Button layoutY="534.0" mnemonicParsing="false" onAction="#produit" prefHeight="70.0" prefWidth="202.0" stylesheets="@style.css" text="gestion de Produit " />
+                  <Button layoutY="622.0" mnemonicParsing="false" onAction="#formation" prefHeight="70.0" prefWidth="202.0" stylesheets="@style.css" text="Gestion de formation" />
+                  <ImageView fitHeight="187.0" fitWidth="202.0" layoutX="1.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../resources/images/TGT.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TabPane layoutX="-8.0" prefHeight="735.0" prefWidth="885.0" tabClosingPolicy="UNAVAILABLE">
+                     <tabs>
+                        <Tab text="afficher les Formation">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@style.css">
+                                 <children>
+                                    <ScrollPane layoutX="14.0" layoutY="70.0" prefHeight="612.0" prefWidth="873.0">
+                                       <content>
+                                          <TableView fx:id="tableViewFormation" prefHeight="589.0" prefWidth="1184.0">
+                                             <columns>
+                                                <TableColumn id="image" fx:id="Image" prefWidth="195.0" text="Image" />
+                                                <TableColumn id="titre" fx:id="Titre" prefWidth="203.0" text="Titre " />
+                                                <TableColumn id="Description" fx:id="Description" maxWidth="302.0" minWidth="0.0" prefWidth="206.0" text="Description" />
+                                                <TableColumn id="Duree" fx:id="Duree" prefWidth="128.0" text="Duree" />
+                                                <TableColumn id="Note" fx:id="Note" minWidth="0.0" prefWidth="144.0" text="Note" />
+                                             </columns>
+                                             <contextMenu>
+                                                <ContextMenu styleClass="table-context">
+                                                   <items>
+                                                      <MenuItem mnemonicParsing="false" onAction="#showDetaille" text="details" />
+                                                   </items>
+                                                </ContextMenu>
+                                             </contextMenu>
+                                          </TableView>
+                                       </content>
+                                    </ScrollPane>
+                                    
+                                    <Button fx:id="modifier" layoutX="25.0" layoutY="16.0" mnemonicParsing="false" onAction="#modifier" text="modifier" />
+                                    <Button fx:id="suprimer" layoutX="113.0" layoutY="16.0" mnemonicParsing="false" onAction="#suprimer" text="suprimer" />
+                                    <Button fx:id="Ajout_formation" layoutX="203.0" layoutY="16.0" mnemonicParsing="false" onAction="#AjoutFormation" prefHeight="31.0" prefWidth="88.0" text="ajouter une Formation" />
+                                 
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab text="aficher liste des cours">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@style.css">
+                                 <children>
+                                    <ScrollPane layoutX="6.0" layoutY="70.0" prefHeight="612.0" prefWidth="873.0">
+                                       <content>
+                                          <TableView fx:id="tableViewCour" prefHeight="589.0" prefWidth="1184.0">
+                                             <columns>
+                                                <TableColumn fx:id="image_cour" prefWidth="203.0" text="Image" />
+                                                <TableColumn fx:id="titre_cour" prefWidth="159.0" text="Titre" />
+                                                <TableColumn fx:id="description_cour" prefWidth="163.0" text="Description" />
+                                                <TableColumn fx:id="duree_cour" minWidth="0.0" prefWidth="170.0" text="Duree" />
+                                                <TableColumn fx:id="note_cour" minWidth="0.0" prefWidth="178.0" text="Note" />
+                                             </columns>
+                                             <contextMenu>
+                                                <ContextMenu styleClass="table-context">
+                                                   <items>
+                                                      <MenuItem mnemonicParsing="false" onAction="#showDetaille" text="details" />
+                                                   </items>
+                                                </ContextMenu>
+                                             </contextMenu>
+                                          </TableView>
+                                       </content>
+                                    </ScrollPane>
+                                    <Button fx:id="modifier" layoutX="36.0" layoutY="19.0" mnemonicParsing="false" onAction="#modifierC" text="modifier" />
+                                    <Button fx:id="supprimerCour" layoutX="127.0" layoutY="19.0" mnemonicParsing="false" onAction="#suprimerC" text="suprimer" />
+                                    <Button fx:id="ajouterCour" layoutX="223.0" layoutY="19.0" mnemonicParsing="false" onAction="#AjoutCour" prefHeight="40.0" prefWidth="94.0" text="ajouter " />
+                                 </children></AnchorPane>
+                           </content>
+                        </Tab>
+                     </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+     
+   </children>
+</AnchorPane>

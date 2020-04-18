@@ -3,11 +3,23 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="735.0" prefWidth="1042.0" styleClass="com\esprit\pidev\tgt\styles\testcss.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.pidev.tgt.controllers.MainControllers">
+<AnchorPane id="AnchorPane" prefHeight="735.0" prefWidth="1042.0" stylesheets="@../../../../../resources/styles/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.pidev.tgt.controllers.MainControllers">
    <children>
-      <TabPane layoutX="7.0" layoutY="8.0" prefHeight="715.0" prefWidth="1023.0" tabClosingPolicy="UNAVAILABLE">
+      <ImageView fitHeight="341.0" fitWidth="1063.0" layoutX="-1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../resources/images/breadcumb5.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="209.0" fitWidth="324.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../resources/images/TGT.png" />
+         </image>
+      </ImageView>
+      <TabPane layoutY="186.0" prefHeight="548.0" prefWidth="1063.0" styleClass="side" stylesheets="@../../../../../resources/styles/style.css" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab fx:id="acceuil" text="Acceuil">
             <content>
@@ -23,7 +35,10 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <JFXButton fx:id="ajouter_un_condidat" layoutX="730.0" layoutY="70.0" onAction="#ajouter_un_condidat" prefHeight="117.0" prefWidth="183.0" text="ajouter un condidat" />
+                        <JFXButton fx:id="ajouter_un_condidat" layoutX="577.0" layoutY="187.0" onAction="#ajouter_un_condidat" prefHeight="117.0" prefWidth="183.0" text="participer a un casting" />
+                        <JFXButton layoutX="81.0" layoutY="355.0" onAction="#ajoutCasting" prefHeight="95.0" prefWidth="177.0" text="ajouter casting" />
+                        <JFXButton layoutX="81.0" layoutY="204.0" onAction="#ajoutEvenment" prefHeight="95.0" prefWidth="177.0" text="ajouter evenment" />
+                        <JFXButton layoutX="81.0" layoutY="63.0" onAction="#ajoutOrganisation" prefHeight="95.0" prefWidth="177.0" text="ajouter Organisation" />
                      </children></AnchorPane>
               </content>
             </Tab>
@@ -39,7 +54,10 @@
             </Tab>
             <Tab fx:id="formatons" text="Formatons">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <JFXButton layoutX="31.0" layoutY="50.0" onAction="#formation" prefHeight="88.0" prefWidth="184.0" text="gerer les formation" />
+                     </children></AnchorPane>
               </content>
             </Tab>
             <Tab fx:id="article" text="Article">

@@ -79,5 +79,26 @@ public class MainControllers implements Initializable {
     void condidats_accepter(ActionEvent event) {
 
     }
+
+    @FXML
+    private void formation(ActionEvent event) {
+        Rooting.navigate("front formation", "ListFormation");
+         
+    }
+
+    @FXML
+    private void ajoutCasting(ActionEvent event) {
+         Rooting.navigate("main", "CastingFormulaire");
+    }
+
+    @FXML
+    private void ajoutEvenment(ActionEvent event) {
+         Rooting.navigate("main", "EventsFormulaire");
+    }
+
+    @FXML
+    private void ajoutOrganisation(ActionEvent event) {
+         Rooting.navigate("main", "OrganisationsFormulaire");
+    }
  }
 

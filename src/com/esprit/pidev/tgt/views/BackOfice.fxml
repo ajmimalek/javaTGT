@@ -10,29 +10,36 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="754.0" prefWidth="1120.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.pidev.tgt.controllers.BackOficeController">
+<AnchorPane id="AnchorPane" prefHeight="754.0" prefWidth="1120.0" styleClass="column-header" stylesheets="@../../../../../resources/styles/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.pidev.tgt.controllers.BackOficeController">
    <children>
       <SplitPane dividerPositions="0.18812785388127853" layoutX="14.0" layoutY="13.0" prefHeight="737.0" prefWidth="1097.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #4B0082;" styleClass="side" stylesheets="@../../../../../resources/styles/style.css">
                <children>
-                  <Button fx:id="gestionCandidature" layoutY="164.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" text="gestion de candidature" />
-                  <Button layoutY="242.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" text="gestion d'organisation" />
-                  <Button layoutX="1.0" layoutY="321.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" text="gestion d'Utilisateur" />
-                  <Button layoutX="1.0" layoutY="399.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" text="gestion de Publicatiion" />
-                  <Button layoutY="477.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" text="gestion de Produit " />
-                  <Button layoutY="557.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" text="Gestion de formation" />
+                  <Button fx:id="gestionCandidature" layoutY="164.0" mnemonicParsing="false" onAction="#candidature" prefHeight="70.0" prefWidth="202.0" text="gestion de candidature" />
+                  <Button layoutY="242.0" mnemonicParsing="false" onAction="#organisation" prefHeight="70.0" prefWidth="202.0" text="gestion d'organisation" />
+                  <Button layoutX="1.0" layoutY="321.0" mnemonicParsing="false" onAction="#profile" prefHeight="70.0" prefWidth="202.0" text="gestion d'Utilisateur" />
+                  <Button layoutX="1.0" layoutY="399.0" mnemonicParsing="false" onAction="#publication" prefHeight="70.0" prefWidth="202.0" text="gestion de Publicatiion" />
+                  <Button layoutY="477.0" mnemonicParsing="false" onAction="#produit" prefHeight="70.0" prefWidth="202.0" text="gestion de Produit " />
+                  <Button layoutY="557.0" mnemonicParsing="false" onAction="#formation" prefHeight="70.0" prefWidth="202.0" text="Gestion de formation" />
+                  <ImageView fitHeight="242.0" fitWidth="202.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../resources/images/TGT.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="side">
                <children>
                   <TabPane layoutX="-8.0" prefHeight="735.0" prefWidth="885.0" tabClosingPolicy="UNAVAILABLE">
                      <tabs>
                         <Tab text="afficher les condidat">
                            <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@../../../../../resources/styles/style.css">
                                  <children>
                                     <ScrollPane layoutX="14.0" layoutY="70.0" prefHeight="612.0" prefWidth="873.0">
                                        <content>
@@ -97,11 +104,6 @@
                                     <Button fx:id="suprimerEntrretient" layoutX="127.0" layoutY="25.0" mnemonicParsing="false" onAction="#suprimerEntrretient" text="suprimer" />
                                     <Button layoutX="277.0" layoutY="25.0" mnemonicParsing="false" onAction="#makeCall" prefHeight="31.0" prefWidth="146.0" text="meeting room" />
                                  </children></AnchorPane>
-                           </content>
-                        </Tab>
-                        <Tab text="aficher liste des cantrat">
-                           <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                            </content>
                         </Tab>
                      </tabs>

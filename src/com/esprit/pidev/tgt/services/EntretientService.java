@@ -71,7 +71,12 @@ public class EntretientService  implements IEntretientService{
     }
     
     public boolean notter(Entretien entretien) throws SQLException {
-        String reqUpdate="UPDATE `entretien` SET ` `statutEnt`="+entretien.getStatutEnt().accepte+",`noteEnt`="+entretien.getNoteEnt()+" WHERE `id` =" +  ;
-         return statement.executeUpdate(reqUpdate)>0; //To change body of generated methods, choose Tools | Templates.
+        String reqUpdate="UPDATE `entretien` SET `statutEnt` = '"+StatutEnt.accepte.toString()+"', `noteEnt` = "+entretien.getNoteEnt()+" WHERE `entretien`.`id` = "+entretien.getId();
+         return statement.executeUpdate(reqUpdate)>0;
+    }
+    
+     public boolean refuser(Entretien entretien) throws SQLException {
+        String reqUpdate="UPDATE `entretien` SET `statutEnt` = '"+StatutEnt.refuser.toString()+"', `noteEnt` = "+entretien.getNoteEnt()+" WHERE `entretien`.`id` = "+entretien.getId();
+         return statement.executeUpdate(reqUpdate)>0;
     }
 }

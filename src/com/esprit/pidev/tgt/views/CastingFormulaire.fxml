@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.pidev.tgt.controllers.CastingFormulaireController">
+   <children>
+      <Label layoutX="232.0" layoutY="37.0" text="Ajouter Casting">
+         <font>
+            <Font name="Baskerville Old Face" size="53.0" />
+         </font>
+      </Label>
+      <TextField fx:id="titre" layoutX="232.0" layoutY="190.0" prefHeight="26.0" prefWidth="531.0" promptText="titre" />
+      <TextArea fx:id="description" layoutX="240.0" layoutY="384.0" prefHeight="157.0" prefWidth="531.0" promptText="Description" />
+      <DatePicker fx:id="DateCasting" layoutX="232.0" layoutY="248.0" promptText="Date Casting" />
+      <DatePicker fx:id="DateLimite" layoutX="545.0" layoutY="248.0" promptText="Date Limite de postuler" />
+      <TextField fx:id="adresse" layoutX="236.0" layoutY="330.0" prefHeight="31.0" prefWidth="218.0" promptText="Adresse" />
+      <ComboBox fx:id="theme" depthTest="ENABLE" layoutX="553.0" layoutY="330.0" prefHeight="31.0" prefWidth="218.0" promptText="Theme" />
+      <Button fx:id="ajouterCasting" layoutX="455.0" layoutY="605.0" mnemonicParsing="false" onAction="#ajouterCasting" text="Ajouter">
+         <font>
+            <Font size="22.0" />
+         </font></Button>
+      <ImageView fx:id="image" fitHeight="100.0" fitWidth="150.0" layoutX="613.0" layoutY="90.0" onMouseClicked="#addImage" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../../../../../resources/images/_upload_image-512%20(1).png" />
+         </image></ImageView>
+      <Pane prefHeight="700.0" prefWidth="200.0" style="-fx-background-color: #602FA2;">
+         <children>
+            <ImageView fx:id="logo" fitHeight="157.0" fitWidth="200.0" layoutY="35.0" pickOnBounds="true" smooth="false">
+               <image>
+                  <Image url="@../../../../../resources/images/Image1.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

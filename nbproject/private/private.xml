@@ -3,12 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp64/www/marsaoui/javaTGT/src/com/esprit/pidev/tgt/services/EntretientService.java</file>
-            <file>file:/C:/wamp64/www/marsaoui/javaTGT/src/com/esprit/pidev/tgt/services/CandidatService.java</file>
-            <file>file:/C:/wamp64/www/marsaoui/javaTGT/src/com/esprit/pidev/tgt/controllers/EspaceEntretientController.java</file>
-            <file>file:/C:/wamp64/www/marsaoui/javaTGT/src/com/esprit/pidev/tgt/entities/Entretien.java</file>
-            <file>file:/C:/wamp64/www/marsaoui/javaTGT/src/com/esprit/pidev/tgt/controllers/ContratFormulaireController.java</file>
-            <file>file:/C:/wamp64/www/marsaoui/javaTGT/src/com/esprit/pidev/tgt/controllers/EntretientFormulaireController.java</file>
+            <file>file:/E:/game/javaTGT/src/com/esprit/pidev/tgt/TGT.java</file>
+            <file>file:/E:/game/javaTGT/src/com/esprit/pidev/tgt/enumeration/Role.java</file>
         </group>
     </open-files>
 </project-private>

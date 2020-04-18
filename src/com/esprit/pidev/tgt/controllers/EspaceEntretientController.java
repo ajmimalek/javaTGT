@@ -23,6 +23,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Labeled;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 
 /**
  * FXML Controller class
@@ -48,6 +50,8 @@ public class EspaceEntretientController implements Initializable {
     private JFXButton accepter_condidat;
     @FXML
     private JFXButton refuser_codidat;
+    @FXML
+    private WebView web;
 
     /**
      * Initializes the controller class.
@@ -55,16 +59,24 @@ public class EspaceEntretientController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-     
+// Get WebEngine via WebView
+WebEngine webEngine = web.getEngine();
+ 
+// Load page
+webEngine.load("https://zoom.us/j/98147677908?pwd=WTFvWTdlL2dzR1FwdFErazdhUGVQZz09");
+
     }    
 
      private void initlabel() {
         nomC.setText(candidat.getNomC());
         titreCasting.setText(candidat.getCasting().getTitreCasting());
         
-    
+    // Create a WebView
+
          
      }
+     
+     
     
        void initfields(Candidat selectedCandidat, BackOficeController backOficeController) {
        this.candidat=selectedCandidat;
@@ -84,7 +96,11 @@ public class EspaceEntretientController implements Initializable {
     }
 
     @FXML
-    private void refuser(ActionEvent event) {
+    private void refuser(ActionEvent event) throws SQLException {
+         this.candidat.getEntretient().setNoteEnt(Integer.valueOf(this.note.getText())); 
+         System.out.println(candidat);
+            entretientService.refuser(candidat.getEntretient());
+        
     }
 
 

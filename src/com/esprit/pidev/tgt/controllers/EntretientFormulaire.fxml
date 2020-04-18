@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTimePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="460.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.pidev.tgt.controllers.EntretientFormulaireController">
+   <children>
+      <JFXDatePicker fx:id="dateEnt" accessibleRole="IMAGE_VIEW" defaultColor="#7d0152" layoutX="76.0" layoutY="134.0" prefHeight="25.0" prefWidth="256.0" promptText="date d' entretient" />
+      <JFXButton fx:id="affecter_une_date" buttonType="RAISED" layoutX="119.0" layoutY="313.0" onAction="#affecter_une_date" prefHeight="31.0" prefWidth="152.0" style="-fx-background-radius: 8; -fx-background-color: #6e033e;" text="affecter une date" textFill="#f8f8f8" />
+      <Label fx:id="nom_condidat" layoutX="133.0" layoutY="50.0" prefHeight="46.0" prefWidth="159.0" text="nom du condidat" />
+      <JFXTimePicker fx:id="timeEnt" layoutX="92.0" layoutY="221.0" />
+   </children>
+</AnchorPane>

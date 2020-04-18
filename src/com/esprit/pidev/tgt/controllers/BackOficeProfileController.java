@@ -89,6 +89,8 @@ public class BackOficeProfileController implements Initializable {
          numero.setCellValueFactory(new PropertyValueFactory<>("numTel"));
          email.setCellValueFactory(new PropertyValueFactory<>("email"));
          avatarUrl.setCellValueFactory(new PropertyValueFactory<>("avatarUrl"));
+         
+         
 //         username.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Compte, String>, ObservableValue<String>>() {
 //            @Override
 //            public ObservableValue<String> call(TableColumn.CellDataFeatures<Compte, String> param) {

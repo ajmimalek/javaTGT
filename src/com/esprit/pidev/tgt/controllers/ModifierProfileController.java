@@ -8,6 +8,7 @@ package com.esprit.pidev.tgt.controllers;
 import com.esprit.pidev.tgt.entities.Utilisateur;
 import com.esprit.pidev.tgt.enumeration.Genre;
 import com.esprit.pidev.tgt.services.UtilisateurService;
+import com.esprit.pidev.tgt.utils.ConectedUser;
 import java.net.URL;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -31,6 +32,7 @@ public class ModifierProfileController implements Initializable {
     private UtilisateurService utilisateurService = new UtilisateurService();
     private Utilisateur utilisateur;
     private BackOficeProfileController BackOficeProfileController;
+    private ProfileController profileController;
     
     @FXML
     private Button modifier;
@@ -64,7 +66,13 @@ public class ModifierProfileController implements Initializable {
         try{
             this.utilisateur.getId();
             boolean a=utilisateurService.update(utilisateur);
+            if(BackOficeProfileController!=null){
             BackOficeProfileController.loadData();
+            }
+            else if(profileController!=null){
+              ConectedUser.setUtilisateur(utilisateur);
+             profileController.loadData();
+            }
             closeStage();
         } catch (Exception ex) {
            // Logger.getLogger(SingUpController.class.getName()).log(Level.SEVERE, null, ex);
@@ -73,6 +81,12 @@ public class ModifierProfileController implements Initializable {
      void initfields(Utilisateur selectedUtilisateur, BackOficeProfileController BackOficeProfileController) {
        this.utilisateur=selectedUtilisateur;
        this.BackOficeProfileController= BackOficeProfileController;
+       initInput();
+    }
+     
+     void initfields(Utilisateur selectedUtilisateur, ProfileController profileController) {
+       this.utilisateur=selectedUtilisateur;
+       this.profileController= profileController;
        initInput();
     }
      

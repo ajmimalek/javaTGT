@@ -8,7 +8,9 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="TGT.jar" size="79098" download="eager" />
+    <jar href="TGT.jar" size="948696" download="eager" />
+    <jar href="lib\commons-lang3-3.9.jar" size="503880" download="eager" />
+    <jar href="lib\jPDFViewerFX.jar" size="4195886" download="eager" />
     <jar href="lib\jfoenix-8.0.2.jar" size="2442326" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.15-bin.jar" size="785998" download="eager" />
   </resources>

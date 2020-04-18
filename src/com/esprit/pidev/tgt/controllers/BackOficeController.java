@@ -32,6 +32,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 /**
@@ -251,4 +252,44 @@ public class BackOficeController implements Initializable {
             }
 });
                  }
-}
+
+    @FXML
+    private void candidature(ActionEvent event) {
+         Rooting.navigate("condidature", "BackOfice");
+          closeStage();
+    }
+
+    @FXML
+    private void organisation(ActionEvent event) {
+         Rooting.navigate("condidature", "BackOfficeOrganisations");
+          closeStage();
+    }
+
+    @FXML
+    private void profile(ActionEvent event) {
+        Rooting.navigate("profile", "BackOficeProfile");
+          closeStage();
+    }
+
+    @FXML
+    private void publication(ActionEvent event) {
+    }
+
+    @FXML
+    private void produit(ActionEvent event) {
+    }
+
+    @FXML
+    private void formation(ActionEvent event) {
+          Rooting.navigate("profile", "BackOficeProfile");
+          closeStage();
+    }
+    
+        private void closeStage() {
+        ((Stage) affectationDate.getScene().getWindow()).close();
+    }
+    
+     
+    }
+
+   

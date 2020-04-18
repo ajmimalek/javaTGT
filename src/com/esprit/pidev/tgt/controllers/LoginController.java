@@ -91,7 +91,7 @@ public class LoginController implements Initializable {
         if (utilisateur!= null && utilisateur.getCompte().getPassword().equals(this.loginPassword.getText())){
             System.out.println(utilisateur);
             ConectedUser.setUtilisateur(utilisateur);
-            Rooting.navigate("", "BackOfice");
+            Rooting.navigate("Profile", "profile");
             closeStage();
          
         }else{
