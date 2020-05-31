@@ -5,6 +5,8 @@
  */
 package com.esprit.pidev.tgt.controllers;
 
+import com.esprit.pidev.tgt.utils.AlertMaker;
+import com.esprit.pidev.tgt.utils.Rooting;
 import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
@@ -52,8 +54,6 @@ public class LoginController implements Initializable {
     @FXML
     private TextField n1;
     @FXML
-    private Label n3;
-    @FXML
     private PasswordField n2;
     @FXML
     private AnchorPane layer2;
@@ -85,30 +85,20 @@ public class LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         s1.setVisible(false);
         s2.setVisible(false);
+        b2.setVisible(false);
         s3.setVisible(false);
         signup.setVisible(false);
         btnsignin.setVisible(false);
         n1.setVisible(false);
         n2.setVisible(false);
-        n3.setVisible(false);
         u1.setVisible(true);
         u2.setVisible(true);
         u3.setVisible(true);
     }
 
     @FXML
-    private void btnsignup(MouseEvent event) {
-
-    }
-
-    @FXML
-    private void sign(MouseEvent event) {
-
-    }
-
-    @FXML
     private void btn(MouseEvent event) {
-        TranslateTransition slide = new TranslateTransition();
+       TranslateTransition slide = new TranslateTransition();
         slide.setDuration(Duration.seconds(0.7));
         slide.setNode(layer2);
 
@@ -117,7 +107,7 @@ public class LoginController implements Initializable {
 
         layer1.setTranslateX(-309);
         btnsignin.setVisible(true);
-
+        b2.setVisible(true);
         s1.setVisible(true);
         s2.setVisible(true);
         s3.setVisible(true);
@@ -130,7 +120,6 @@ public class LoginController implements Initializable {
         btnsignup.setVisible(false);
         n1.setVisible(true);
         n2.setVisible(true);
-        n3.setVisible(true);
         u1.setVisible(false);
         u2.setVisible(false);
         u3.setVisible(false);
@@ -164,10 +153,10 @@ public class LoginController implements Initializable {
         btnsignup.setVisible(true);
         n1.setVisible(false);
         n2.setVisible(false);
-        n3.setVisible(false);
         u1.setVisible(true);
         u2.setVisible(true);
         u3.setVisible(true);
+        b2.setVisible(false);
 
         slide.setOnFinished((e -> {
 
@@ -178,19 +167,20 @@ public class LoginController implements Initializable {
     private void Connexion(ActionEvent event) {
         Stage stage = new Stage();
         Parent root = null;
-        try {
-            root = FXMLLoader.load(getClass().getResource("/../../../../../Main.fxml"));
-        } catch (IOException ex) {
-            System.err.println(ex.getMessage());
+        if ((n1.getText().equals("ajmimalek"))&&(n2.getText().equals("123"))){
+            Rooting.navigate("Espace Administrateur", "BackOffice");
+            stackPanel.getScene().getWindow().hide();
+        } else if ((n1.getText().equals("malek123"))&&(n2.getText().equals("saveme"))) {
+            Rooting.navigate("Acceuil", "Main");
+            stackPanel.getScene().getWindow().hide();
+        } else {
+            AlertMaker.showErrorMessage("Username et Mot de passe manquant", "Veuillez mentionner votre username et votre mot de passe");
         }
-        Scene scene = new Scene(root);
-        //Lancer le stage
-        stage.setTitle("Tunisians Got Talents");
-        stage.setScene(scene);
-        stage.show();
-        stackPanel.getScene().getWindow().hide();
-        //Icone
-        stage.getIcons().add(new Image("file:favicon.png"));
+        
+    }
+
+    @FXML
+    private void Inscription(ActionEvent event) {
     }
 
 }

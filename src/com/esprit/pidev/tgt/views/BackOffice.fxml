@@ -7,48 +7,95 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.pidev.tgt.controllers.BackOfficeController">
-      <children>
-      <SplitPane dividerPositions="0.18904109589041096" layoutX="14.0" layoutY="13.0" prefHeight="737.0" prefWidth="1097.0">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="735.0" prefWidth="289.0">
-               <children>
-                  <Button fx:id="gestionCandidature" layoutY="164.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" style="-fx-background-color: black;" text="Gestion des candidatures" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font></Button>
-                  <Button layoutY="242.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" style="-fx-background-color: black;" text="Gestion d'organisation" textFill="WHITE" />
-                  <Button layoutX="1.0" layoutY="321.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" style="-fx-background-color: black;" text="gestion d'Utilisateur" textFill="WHITE" />
-                  <Button layoutX="1.0" layoutY="399.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" style="-fx-background-color: black;" text="Catégories des Publications" textFill="WHITE" />
-                  <Button layoutY="477.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" style="-fx-background-color: black;" text="Gestion des Produits " textFill="WHITE" />
-                  <Button layoutY="557.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" style="-fx-background-color: black;" text="Gestion des formations" textFill="WHITE" />
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="735.0" prefWidth="857.0">
-               <children>
-                  <Label layoutX="190.0" layoutY="47.0" prefHeight="38.0" prefWidth="489.0" text="Gestion des Catégories des Publications" textAlignment="CENTER" textFill="#00c292">
-                     <font>
-                        <Font size="26.0" />
-                     </font>
-                  </Label>
-                  <TableView fx:id="lscatégories" layoutX="221.0" layoutY="241.0" prefHeight="382.0" prefWidth="444.0">
-                    <columns>
-                      <TableColumn fx:id="nomcat" prefWidth="225.0" text="Catégories" />
-                        <TableColumn fx:id="delete" minWidth="0.0" prefWidth="171.0" text="Supprimer" />
-                    </columns>
-                  </TableView>
-                  <JFXButton fx:id="btnajoutcat" buttonType="RAISED" layoutX="590.0" layoutY="132.0" onAction="#AjouterCatégorie" prefHeight="50.0" prefWidth="116.0" ripplerFill="WHITE" style="-fx-background-color: #00c292;" text="Ajouter" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </JFXButton>
-                  <JFXTextField fx:id="txtnomcat" focusColor="#00c292" layoutX="202.0" layoutY="142.0" prefHeight="31.0" prefWidth="354.0" promptText="Ajouter une nouvelle catégorie" />
-               </children>
-            </AnchorPane>
-        </items>
-      </SplitPane>
-   </children>
+<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="400.0" prefWidth="1111.0" stylesheets="@styleBack.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.pidev.tgt.controllers.BackOfficeController">
+    <children>
+        <SplitPane dividerPositions="0.18904109589041096" layoutY="-3.0" prefHeight="714.0" prefWidth="1111.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="-3.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="735.0" prefWidth="289.0" style="-fx-background-color: #4B0082;" styleClass="side">
+                    <children>
+                        <ImageView fitHeight="242.0" fitWidth="202.0" layoutX="2.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@ressources/TGT.png" />
+                            </image>
+                        </ImageView>
+                  <VBox layoutX="2.0" layoutY="160.0" prefHeight="420.0" prefWidth="202.0" AnchorPane.bottomAnchor="150.0" AnchorPane.topAnchor="150.0">
+                     <children>
+                              <Button fx:id="gestionCandidature" mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" text="Gestion des candidatures" textFill="WHITE">
+                                  <font>
+                                      <Font name="System Bold" size="15.0" />
+                                  </font>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" text="Gestion d'organisation" textFill="WHITE" />
+                              <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" text="Gestion d'Utilisateur" textFill="WHITE" />
+                              <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" text="Catégories des Publications" textFill="WHITE" />
+                              <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" text="Gestion des Produits " textFill="WHITE" />
+                              <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="202.0" text="Gestion des formations" textFill="WHITE" />
+                     </children>
+                  </VBox>
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="main" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="735.0" prefWidth="857.0">
+                    <children>
+                        <Label layoutX="190.0" layoutY="47.0" prefHeight="38.0" prefWidth="489.0" text="Gestion des Catégories des Publications" textAlignment="CENTER" textFill="#00c292">
+                            <font>
+                                <Font name="System Bold" size="26.0" />
+                            </font>
+                        </Label>
+                        <TableView fx:id="lscatégories" styleClass="table-view" layoutX="68.0" layoutY="213.0" prefHeight="386.0" prefWidth="228.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="68.0" AnchorPane.rightAnchor="600.0" AnchorPane.topAnchor="213.0">
+                            <columns>
+                                <TableColumn fx:id="nomcat" prefWidth="225.0" text="Catégories" />
+                            </columns>
+                        </TableView>
+                        <JFXButton fx:id="btnajoutcat" buttonType="RAISED" layoutX="590.0" layoutY="132.0" onAction="#AjouterCatégorie" prefHeight="50.0" prefWidth="116.0" ripplerFill="WHITE" style="-fx-background-color: #00c292;" text="Ajouter" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                        </JFXButton>
+                        <JFXTextField fx:id="txtnomcat" focusColor="#00c292" layoutX="202.0" layoutY="142.0" prefHeight="31.0" prefWidth="354.0" promptText="Ajouter une nouvelle catégorie" />
+                  <AnchorPane layoutX="343.0" layoutY="282.0" AnchorPane.bottomAnchor="118.0" AnchorPane.leftAnchor="343.0" AnchorPane.rightAnchor="58.0" AnchorPane.topAnchor="282.0">
+                     <children>
+                              <Label layoutX="15.0" prefHeight="31.0" prefWidth="211.0" text="Modification d'une catégorie :" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+                                  <font>
+                                      <Font name="System Bold" size="14.0" />
+                                  </font>
+                              </Label>
+                              <Text layoutX="15.0" layoutY="43.892578125" strokeType="OUTSIDE" strokeWidth="0.0" text="Afin de modifier une catégorie , il suffit de double cliquer sur la catégorie dans la liste et introduire la modifcation dans la zone de texte qui a apparu" wrappingWidth="464.13671875" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+                                  <font>
+                                      <Font size="14.0" />
+                                  </font>
+                              </Text>
+                              <Label layoutX="15.0" layoutY="154.0" prefHeight="31.0" prefWidth="211.0" text="Suppression d'une catégorie :" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+                                  <font>
+                                      <Font name="System Bold" size="14.0" />
+                                  </font>
+                              </Label>
+                              <Text layoutX="15.0" layoutY="204.892578125" strokeType="OUTSIDE" strokeWidth="0.0" text="Afin de supprimer une catégorie , il suffit de sélectionner la catégorie dans la liste et cliquer sur le bouton " wrappingWidth="464.13671875" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+                                  <font>
+                                      <Font size="14.0" />
+                                  </font>
+                              </Text>
+                              <JFXButton fx:id="btnsupprimer" buttonType="RAISED" layoutX="15.0" layoutY="265.0" onAction="#SupprimerCatégorie" prefHeight="50.0" prefWidth="144.0" style="-fx-background-color: #91260e;" text="Supprimer" textFill="WHITE" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+                                  <font>
+                                      <Font name="System Bold" size="15.0" />
+                                  </font>
+                              </JFXButton>
+                     </children>
+                  </AnchorPane>
+                      <ImageView fx:id="logout" fitHeight="62.0" fitWidth="64.0" layoutX="807.0" layoutY="16.0" onMouseClicked="#logout" AnchorPane.bottomAnchor="541.0" AnchorPane.leftAnchor="807.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="16.0">
+                            <image>
+                                <Image url="@ressources/logout.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </children>
 </AnchorPane>

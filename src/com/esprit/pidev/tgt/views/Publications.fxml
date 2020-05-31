@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="683.0" prefWidth="1263.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.pidev.tgt.controllers.PublicationsController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="683.0" prefWidth="1271.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.pidev.tgt.controllers.PublicationsController">
    <children>
-      <VBox layoutX="14.0" layoutY="210.0" prefHeight="273.0" prefWidth="261.0">
+      <VBox layoutX="14.0" layoutY="210.0" prefHeight="273.0" prefWidth="261.0" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="988.0" AnchorPane.topAnchor="200.0">
          <children>
             <Label alignment="CENTER" prefHeight="54.0" prefWidth="265.0" style="-fx-background-color: linear-gradient(to right, #cc1573, #5722a9);" text="Menu Publications" textFill="WHITE">
                <font>
@@ -28,7 +28,7 @@
             </JFXButton>
          </children>
       </VBox>
-      <ScrollPane layoutX="288.0" layoutY="229.0" prefHeight="665.0" prefWidth="971.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="288.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="14.0">
+      <ScrollPane layoutX="288.0" layoutY="229.0" prefHeight="665.0" prefWidth="980.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="288.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <content>
             <VBox fx:id="pnl_scroll" prefHeight="662.0" prefWidth="972.0" spacing="20.0" style="-fx-background-color: #fff;" />
          </content>

@@ -18,6 +18,7 @@ public class CommentairePublication {
     private int nbinutile;
     private int ratingComm;
     private Timestamp dateComm;
+    Publication publication;
     
     //Update Query
     public CommentairePublication(int id_comment, String contenu,int nbinutile, int ratingComm) {
@@ -37,6 +38,7 @@ public class CommentairePublication {
     //Delete Query
     public CommentairePublication(int id_comment) {
         this.id_comment = id_comment;
+        publication = new Publication(0);
     }
     
     public int getId_comment() {
@@ -83,5 +85,14 @@ public class CommentairePublication {
     public String toString() {
         return "CommentairePublication{" + "id_comment=" + id_comment + ", contenu=" + contenu + ", nbinutile=" + nbinutile + ", ratingComm=" + ratingComm + ", dateComm=" + dateComm + '}';
     }
+
+    public Publication getPublication() {
+        return publication;
+    }
+
+    public void setPublication(Publication publication) {
+        this.publication = publication;
+    }
+    
     
 }

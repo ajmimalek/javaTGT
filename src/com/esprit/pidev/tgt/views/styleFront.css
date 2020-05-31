@@ -1,0 +1,46 @@
+.head-background
+{
+    -fx-background-image: url("ressources/breadcumb5.jpg");      
+    -fx-background-position: center center;
+    -fx-background-repeat: stretch;
+}
+
+.jfx-progress-bar > .track, .jfx-progress-bar > .bar {
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+}
+
+.jfx-progress-bar > .bar {
+    -fx-background-color: #cc1573;
+}
+/*Alert Dialog*/
+
+.custom-alert{
+    -fx-background-color: white;
+    -fx-text-fill: black;
+}
+.custom-alert > *.button-bar > *.container{
+    -fx-background-color: white;
+}
+.custom-alert > *.label.content{
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+}
+.custom-alert:header *.header-panel{
+    -fx-background-color: linear-gradient(to right, #cc1573, #5722a9);
+}
+.custom-alert:header  .header-panel .label {
+    -fx-font-style: normal;
+    -fx-text-fill: white;
+}
+.custom-alert:header *.header-panel *.label{
+    -fx-font-size: 18px;
+    -fx-font-style: italic;
+    -fx-fill: white;
+}
+.custom-alert > *.button-bar > *.container > *.button {
+    -fx-background-color: linear-gradient(to right, #cc1573, #5722a9);
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+}

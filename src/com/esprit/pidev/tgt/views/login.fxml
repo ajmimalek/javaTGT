@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -8,65 +9,63 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="stackPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.pidev.tgt.controllers.LoginController">
+<StackPane fx:id="stackPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.pidev.tgt.controllers.LoginController">
    <children>
       <AnchorPane fx:id="layersignup" prefHeight="500.0" prefWidth="632.0">
          <children>
-            <AnchorPane fx:id="layer1" layoutX="309.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="491.0" style="-fx-background-color: white;">
+            <AnchorPane fx:id="layer1" layoutX="309.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="491.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="309.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label fx:id="a2" alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="92.0" prefHeight="23.0" prefWidth="196.0" text="Inscription" textAlignment="CENTER" textFill="#300d33">
+                  <Label fx:id="b2" alignment="CENTER" contentDisplay="CENTER" layoutX="148.0" layoutY="92.0" prefHeight="23.0" prefWidth="196.0" text="Connexion" textAlignment="CENTER" textFill="#300d33" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="147.0">
                      <font>
                         <Font name="Arial" size="17.0" />
                      </font>
                   </Label>
-                  <Label fx:id="b2" alignment="CENTER" contentDisplay="CENTER" layoutX="148.0" layoutY="104.0" prefHeight="23.0" prefWidth="196.0" text="Connexion" textAlignment="CENTER" textFill="#300d33">
+                  <Label fx:id="a2" alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="92.0" prefHeight="23.0" prefWidth="196.0" text="Inscription" textAlignment="CENTER" textFill="#300d33" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="145.0">
                      <font>
                         <Font name="Arial" size="17.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="u1" layoutX="119.0" layoutY="218.0" prefHeight="32.0" prefWidth="258.0" promptText="Name" />
-                  <TextField fx:id="u2" layoutX="119.0" layoutY="268.0" prefHeight="32.0" prefWidth="258.0" promptText="Email" />
-                  <TextField fx:id="u3" layoutX="119.0" layoutY="316.0" prefHeight="32.0" prefWidth="258.0" promptText="Password" />
-                  <JFXButton fx:id="btnsignup" layoutX="189.0" layoutY="375.0" onMouseClicked="#btnsignup" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #300d33; -fx-background-radius: 200; -fx-text-fill: white;" text="SIGN UP" />
-                  <JFXButton fx:id="btnsignin" layoutX="189.0" layoutY="375.0" onAction="#Connexion" onMouseClicked="#sign" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #300d33; -fx-background-radius: 200; -fx-text-fill: white;" text="SIGN IN" />
-                  <TextField fx:id="n1" layoutX="119.0" layoutY="218.0" prefHeight="32.0" prefWidth="258.0" promptText="Username" />
-                  <Label fx:id="n3" alignment="CENTER" contentDisplay="CENTER" layoutX="115.0" layoutY="323.0" prefHeight="10.0" prefWidth="267.0" text="Forget Your Password" textAlignment="CENTER" textFill="#300d33">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Label>
-                  <PasswordField fx:id="n2" layoutX="119.0" layoutY="268.0" prefHeight="32.0" prefWidth="258.0" promptText="password" />
+                  <TextField fx:id="u1" layoutX="119.0" layoutY="218.0" prefHeight="32.0" prefWidth="258.0" promptText="Name" AnchorPane.leftAnchor="119.0" AnchorPane.rightAnchor="114.0" />
+                  <TextField fx:id="u2" layoutX="119.0" layoutY="268.0" prefHeight="32.0" prefWidth="258.0" promptText="Email" AnchorPane.leftAnchor="119.0" AnchorPane.rightAnchor="114.0" />
+                  <TextField fx:id="u3" layoutX="119.0" layoutY="316.0" prefHeight="32.0" prefWidth="258.0" promptText="Password" AnchorPane.leftAnchor="119.0" AnchorPane.rightAnchor="114.0" />
+                  <JFXButton fx:id="btnsignup" layoutX="189.0" layoutY="375.0" onAction="#Inscription" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #300d33; -fx-background-radius: 200; -fx-text-fill: white;" text="S'inscrire" AnchorPane.leftAnchor="189.0" AnchorPane.rightAnchor="184.0" />
+                  <JFXButton fx:id="btnsignin" layoutX="189.0" layoutY="375.0" onAction="#Connexion" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #300d33; -fx-background-radius: 200; -fx-text-fill: white;" text="Se connecter" AnchorPane.leftAnchor="189.0" AnchorPane.rightAnchor="184.0" />
+                  <TextField fx:id="n1" layoutX="119.0" layoutY="218.0" prefHeight="32.0" prefWidth="258.0" promptText="Username" AnchorPane.leftAnchor="119.0" AnchorPane.rightAnchor="114.0" />
+                  <PasswordField fx:id="n2" layoutX="119.0" layoutY="268.0" prefHeight="32.0" prefWidth="258.0" promptText="password" AnchorPane.leftAnchor="119.0" AnchorPane.rightAnchor="114.0" />
                </children>
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="layer2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="309.0" style="-fx-background-color: #0c0527;" StackPane.alignment="CENTER_LEFT">
+      <AnchorPane fx:id="layer2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="309.0" style="-fx-background-color: #0c0527;" StackPane.alignment="CENTER_LEFT">
          <children>
-            <Label fx:id="l1" alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="112.0" prefHeight="39.0" prefWidth="211.0" text="Welcome Back !" textFill="WHITE">
+            <Label fx:id="l1" alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="112.0" prefHeight="39.0" prefWidth="211.0" text="Bienvenue " textFill="WHITE" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="49.0">
                <font>
                   <Font name="Arial Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="l2" alignment="CENTER" contentDisplay="CENTER" layoutX="21.0" layoutY="162.0" prefHeight="23.0" prefWidth="267.0" text="My channel Cyber Developer, Comment for video." textAlignment="CENTER" textFill="WHITE" />
-            <Label fx:id="l3" alignment="CENTER" contentDisplay="CENTER" layoutX="68.0" layoutY="185.0" prefHeight="23.0" prefWidth="173.0" text="Like and Subscribe my channel." textAlignment="CENTER" textFill="WHITE" />
-            <JFXButton fx:id="signin" layoutX="87.0" layoutY="250.0" onMouseClicked="#btn" prefHeight="39.0" prefWidth="135.0" style="-fx-background-color: #300d33; -fx-border-radius: 200; -fx-border-color: white; -fx-background-radius: 200; -fx-text-fill: white;" text="SIGN IN">
+            <Label fx:id="l2" alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="162.0" prefHeight="23.0" prefWidth="238.0" text="Tunisian Got Talents est l'application qui va " textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="35.0" />
+            <Label fx:id="l3" alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="185.0" prefHeight="32.0" prefWidth="299.0" text="vous garantir un espace pour échanger vos talents" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="-1.0" />
+            <JFXButton fx:id="signin" layoutX="87.0" layoutY="250.0" onMouseClicked="#btn" prefHeight="39.0" prefWidth="135.0" style="-fx-background-color: #300d33; -fx-border-radius: 200; -fx-border-color: white; -fx-background-radius: 200; -fx-text-fill: white;" text="Se connecter" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="49.0">
                <font>
                   <Font size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="signup" layoutX="87.0" layoutY="250.0" onMouseClicked="#btn2" prefHeight="39.0" prefWidth="135.0" style="-fx-background-color: #300d33; -fx-border-radius: 200; -fx-border-color: white; -fx-background-radius: 200; -fx-text-fill: white;" text="SIGN UP">
+            <JFXButton fx:id="signup" layoutX="87.0" layoutY="250.0" onMouseClicked="#btn2" prefHeight="39.0" prefWidth="135.0" style="-fx-background-color: #300d33; -fx-border-radius: 200; -fx-border-color: white; -fx-background-radius: 200; -fx-text-fill: white;" text="S'inscrire" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="49.0">
                <font>
                   <Font size="14.0" />
                </font>
             </JFXButton>
-            <Label fx:id="s1" alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="112.0" prefHeight="39.0" prefWidth="211.0" text="Hello, Friend !" textFill="WHITE">
+            <Label fx:id="s1" alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="112.0" prefHeight="39.0" prefWidth="211.0" text="Hello, Friend !" textFill="WHITE" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="49.0">
                <font>
                   <Font name="Arial Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="s2" alignment="CENTER" contentDisplay="CENTER" layoutX="18.0" layoutY="165.0" prefHeight="17.0" prefWidth="267.0" text="Enter your personal details" textAlignment="CENTER" textFill="WHITE" />
-            <Label fx:id="s3" alignment="CENTER" contentDisplay="CENTER" layoutX="65.0" layoutY="188.0" prefHeight="17.0" prefWidth="173.0" text="and start journey with us" textAlignment="CENTER" textFill="WHITE" />
+            <Label fx:id="s2" alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="162.0" prefHeight="23.0" prefWidth="238.0" text="Enter your personal details" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="42.0" AnchorPane.rightAnchor="29.0" />
+            <Label fx:id="s3" alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="190.0" prefHeight="23.0" prefWidth="228.0" text="and start journey with us" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="41.0" AnchorPane.rightAnchor="40.0" />
          </children>
+         <StackPane.margin>
+            <Insets />
+         </StackPane.margin>
       </AnchorPane>
    </children>
 </StackPane>

@@ -7,6 +7,8 @@ package com.esprit.pidev.tgt.controllers;
 
 import com.esprit.pidev.tgt.entities.CatégoriePublication;
 import com.esprit.pidev.tgt.services.CatégoriePublicationService;
+import com.esprit.pidev.tgt.utils.AlertMaker;
+import com.esprit.pidev.tgt.utils.Rooting;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
@@ -21,6 +23,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -39,22 +45,25 @@ public class BackOfficeController implements Initializable {
     private TableView<CatégoriePublication> lscatégories;
     @FXML
     private TableColumn<CatégoriePublication, String> nomcat;
-    @FXML
-    private TableColumn<CatégoriePublication, JFXButton> delete;
 
     public static ObservableList<CatégoriePublication> oblist = FXCollections.observableArrayList();
     CatégoriePublicationService cps = new CatégoriePublicationService();
+    @FXML
+    private JFXButton btnsupprimer;
+    @FXML
+    private ImageView logout;
+    @FXML
+    private AnchorPane anchorPane;
+    @FXML
+    private AnchorPane main;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //Déclaration
+       //Déclaration
         nomcat.setCellValueFactory(new PropertyValueFactory<>("nomCat"));
-        nomcat.prefWidthProperty().bind(lscatégories.widthProperty().multiply(2.75).divide(4));
-        delete.setCellValueFactory(new PropertyValueFactory<>("delete"));
-        delete.prefWidthProperty().bind(lscatégories.widthProperty().divide(4));
 
         //Editable nom du catégorie
         nomcat.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -73,19 +82,32 @@ public class BackOfficeController implements Initializable {
 
     @FXML
     private void AjouterCatégorie(ActionEvent event) {
-        JFXButton button = new JFXButton("Supprimer");
-        button.setStyle("-fx-background-color: #8B0000; -fx-text-fill: white;");
-        button.setOnAction((deleteEvent) -> {
-
-        });
         if (txtnomcat.getText().trim().isEmpty()) {
-            System.out.println("Pas de texte");
+            AlertMaker.showErrorMessage("Pas de texte", "Veuillez introduire un nom non vide Exemple : Art,Cinéma..");
         } else {
-            CatégoriePublication cp = new CatégoriePublication(txtnomcat.getText(), button);
+            CatégoriePublication cp = new CatégoriePublication(txtnomcat.getText());
             cps.ajouter(cp);
             oblist.add(cp);
-            txtnomcat.setText(null);
+            txtnomcat.setText("");
         }
     }
+
+    @FXML
+    private void SupprimerCatégorie(ActionEvent event) {
+        CatégoriePublication selectedCatégorie = lscatégories.getSelectionModel().getSelectedItem();
+        if (selectedCatégorie == null){
+            AlertMaker.showSimpleAlert("Candidat non sélectionné", "Veuillez sélectionner un candidat");
+        } else {
+            cps.supprimer(selectedCatégorie);
+            oblist.remove(selectedCatégorie);
+        }
+    }
+
+    @FXML
+    private void logout(MouseEvent event) {
+        Rooting.navigate("Connexion", "login");
+        anchorPane.getScene().getWindow().hide();
+    }
+
 
 }

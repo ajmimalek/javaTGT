@@ -5,22 +5,19 @@
  */
 package com.esprit.pidev.tgt.entities;
 
-import com.jfoenix.controls.JFXButton;
+
 
 /**
  *
  * @author Malek
  */
 public class CatégoriePublication {
-    
-    private int id_cat;
+     private int id_cat;
     private String nomCat;
-    private JFXButton delete;
 
-    public CatégoriePublication(int id_cat, String nomCat, JFXButton delete) {
+    public CatégoriePublication(int id_cat, String nomCat) {
         this.id_cat = id_cat;
         this.nomCat = nomCat;
-        this.delete = delete;
     }
 
     public CatégoriePublication(int id_cat) {
@@ -31,10 +28,6 @@ public class CatégoriePublication {
         this.nomCat = nomCat;
     }
 
-    public CatégoriePublication(String nomCat, JFXButton delete) {
-        this.nomCat = nomCat;
-        this.delete = delete;
-    }
 
     public int getId_cat() {
         return id_cat;
@@ -52,19 +45,11 @@ public class CatégoriePublication {
         this.nomCat = nomCat;
     }
 
-    public JFXButton getDelete() {
-        return delete;
-    }
-
-    public void setDelete(JFXButton delete) {
-        this.delete = delete;
-    }
-    
     
 
     @Override
     public String toString() {
         return "CatégoriePublication{" + "id_cat=" + id_cat + ", nomCat=" + nomCat + '}';
     }
-     
+      
 }

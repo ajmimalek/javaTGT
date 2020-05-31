@@ -28,7 +28,7 @@ public class TGT extends Application {
         Scene scene = new Scene(root);
         
         //Appliquer l'effet transparent pour enlever la barre Windows 
-        primaryStage.initStyle(StageStyle.  TRANSPARENT);
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
         
         primaryStage.setTitle("Tunisians Got Talents");
         primaryStage.getIcons().add(new Image("file:favicon.png"));

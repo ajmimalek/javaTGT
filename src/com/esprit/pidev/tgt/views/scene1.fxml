@@ -17,6 +17,6 @@
             <Image url="@ressources/TGT.png" />
          </image>
       </ImageView>
-      <JFXProgressBar layoutX="82.0" layoutY="445.0" prefHeight="1.0" prefWidth="599.0" style="-fx-background-color: linear-gradient(to right, #cc1573, #5722a9);" />
+      <JFXProgressBar layoutX="82.0" layoutY="445.0" prefHeight="1.0" prefWidth="599.0" styleClass="jfx-progress-bar" stylesheets="@styleFront.css" />
    </children>
 </AnchorPane>

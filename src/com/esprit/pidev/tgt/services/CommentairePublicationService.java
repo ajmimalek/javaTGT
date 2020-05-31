@@ -21,21 +21,30 @@ import java.util.List;
 public class CommentairePublicationService implements IServices<CommentairePublication>{
     
     Connection connection = DataSource.getInstance().getConnection();
+    
+    PublicationService pubs = new PublicationService();
 
     @Override
     public void ajouter(CommentairePublication t) {
         try {
             String req = "ALTER TABLE commentairePublication AUTO_INCREMENT = "+ Statement.RETURN_GENERATED_KEYS;
-            String requete = "INSERT INTO Commentairepublication (contenu,nbinutile,dateComm,ratingComm) VALUES (?,0,?,?)";
+            String requete = "INSERT INTO Commentairepublication (contenu,nbinutile,dateComm,ratingComm,id_pub) VALUES (?,0,?,?,?)";
+            String updateQuery = "UPDATE publication SET ratingPub=? WHERE id_pub=?";
             PreparedStatement ps = connection.prepareStatement(requete);
             PreparedStatement ps1 = connection.prepareStatement(req);
+            PreparedStatement ps2 = connection.prepareStatement(updateQuery);
             ps.setString(1 , t.getContenu() );
             ps.setTimestamp(2, t.getDateComm());
             ps.setInt(3, t.getRatingComm());
+            ps.setInt(4, t.getPublication().getId_pub());
             ps1.execute();
             ps.executeUpdate();
+            ps2.setFloat(1, pubs.calculRatingPub(t.getPublication()));
+            ps2.setInt(2, t.getPublication().getId_pub());
+            ps2.executeUpdate();
             System.out.println("Commentaire ajoutée !");
-
+            System.out.println(t.getPublication());
+            System.out.println(pubs.calculRatingPub(t.getPublication()));
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -45,9 +54,14 @@ public class CommentairePublicationService implements IServices<CommentairePubli
     public void supprimer(CommentairePublication t) {
          try {
             String requete = "DELETE FROM Commentairepublication WHERE id_comment=?";
+            String updateQuery = "UPDATE publication SET ratingPub=? WHERE id_pub=?";
             PreparedStatement pst = connection.prepareStatement(requete);
+            PreparedStatement ps2 = connection.prepareStatement(updateQuery);
             pst.setInt(1, t.getId_comment());
             pst.executeUpdate();
+            ps2.setFloat(1, pubs.calculRatingPub(t.getPublication()));
+            ps2.setInt(2, t.getPublication().getId_pub());
+            ps2.executeUpdate();
             System.out.println("Commentaire supprimée !");
 
         } catch (SQLException ex) {
@@ -82,7 +96,9 @@ public class CommentairePublicationService implements IServices<CommentairePubli
                 cp.setNbinutile(rs.getInt("nbinutile"));
                 cp.setRatingComm(rs.getInt("ratingComm"));
                 cp.setDateComm(rs.getTimestamp("dateComm"));
+                cp.getPublication().setId_pub(rs.getInt("id_pub"));
                 list.add(cp);
+                System.out.println(cp);
             }
 
         } catch (SQLException ex) {
@@ -96,7 +112,7 @@ public class CommentairePublicationService implements IServices<CommentairePubli
         List<CommentairePublication> list = new ArrayList<>();
         
         try {
-            String requete = "SELECT contenu,ratingComm FROM Commentairepublication "
+            String requete = "SELECT * FROM Commentairepublication "
                     + "WHERE id_pub=? ORDER BY ratingComm";
             PreparedStatement pst = connection.prepareStatement(requete);
             pst.setInt(1, id_pub);
@@ -121,7 +137,7 @@ public class CommentairePublicationService implements IServices<CommentairePubli
         List<CommentairePublication> list = new ArrayList<>();
         
         try {
-            String requete = "SELECT contenu,ratingComm FROM Commentairepublication "
+            String requete = "SELECT * FROM Commentairepublication "
                     + "WHERE id_pub=? ORDER BY dateComm DESC";
             PreparedStatement pst = connection.prepareStatement(requete);
             pst.setInt(1, id_pub);

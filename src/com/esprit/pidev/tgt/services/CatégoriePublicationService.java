@@ -5,10 +5,9 @@
  */
 package com.esprit.pidev.tgt.services;
 
-import com.esprit.pidev.tgt.controllers.BackOfficeController;
 import com.esprit.pidev.tgt.entities.CatégoriePublication;
+import com.esprit.pidev.tgt.utils.AlertMaker;
 import com.esprit.pidev.tgt.utils.DataSource;
-import com.jfoenix.controls.JFXButton;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,21 +15,19 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author Malek
  */
-public class CatégoriePublicationService implements IServices<CatégoriePublication>{
-    
+public class CatégoriePublicationService implements IServices<CatégoriePublication> {
+
     Connection connection = DataSource.getInstance().getConnection();
 
     @Override
     public void ajouter(CatégoriePublication t) {
-         try {
-            String req = "ALTER TABLE categoriePublication AUTO_INCREMENT = "+ Statement.RETURN_GENERATED_KEYS;
+        try {
+            String req = "ALTER TABLE categoriePublication AUTO_INCREMENT = " + Statement.RETURN_GENERATED_KEYS;
             String requete = "INSERT INTO categoriePublication (nomCat) VALUES (?)";
             PreparedStatement pst = connection.prepareStatement(requete);
             PreparedStatement pst1 = connection.prepareStatement(req);
@@ -41,6 +38,7 @@ public class CatégoriePublicationService implements IServices<CatégoriePublica
 
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
+            AlertMaker.showErrorMessage("Ajout non effectué", "Erreur lors de l'ajout du catégorie");
         }
     }
 
@@ -55,10 +53,11 @@ public class CatégoriePublicationService implements IServices<CatégoriePublica
 
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
+            AlertMaker.showErrorMessage("Suppression non effectué", "Erreur lors de suppression du catégorie");
         }
     }
-    
-    public void supprimerParID(int id_cat){
+
+    public void supprimerParID(int id_cat) {
         try {
             String requete = "DELETE FROM categoriePublication WHERE id_cat=?";
             PreparedStatement pst = connection.prepareStatement(requete);
@@ -68,12 +67,13 @@ public class CatégoriePublicationService implements IServices<CatégoriePublica
 
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
+            AlertMaker.showErrorMessage("Suppression non effectué", "Erreur lors de suppression du catégorie");
         }
     }
 
     @Override
     public void modifier(CatégoriePublication t) {
-         try {
+        try {
             String requete = "UPDATE categoriePublication SET nomCat=? WHERE id_cat=?";
             PreparedStatement pst = connection.prepareStatement(requete);
             pst.setInt(2, t.getId_cat());
@@ -83,6 +83,7 @@ public class CatégoriePublicationService implements IServices<CatégoriePublica
 
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
+            AlertMaker.showErrorMessage("Suppression non effectué", "Erreur lors de suppression du catégorie");
         }
     }
 
@@ -95,22 +96,51 @@ public class CatégoriePublicationService implements IServices<CatégoriePublica
             PreparedStatement pst = connection.prepareStatement(requete);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                JFXButton button = new JFXButton("Supprimer");
-                button.setStyle("-fx-background-color: #8B0000; -fx-text-fill: white;");
-                int current_row_number = rs.getRow();
-                button.setId(Integer.toString(current_row_number));
-                list.add(new CatégoriePublication(rs.getInt(1),rs.getString(2), button));
-                button.setOnAction((event) -> {
-                        this.supprimerParID(Integer.parseInt(button.getId()));
-                        BackOfficeController.oblist.remove(Integer.parseInt(button.getId()));
-                });
+                list.add(new CatégoriePublication(rs.getInt(1), rs.getString(2)));
             }
 
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
+            AlertMaker.showErrorMessage("Erreur", "Erreur lors de l'affichage des catégories");
         }
 
         return list;
     }
-    
+
+    public List<String> afficherNom() {
+        List<String> list = new ArrayList<>();
+
+        try {
+            String requete = "SELECT nomCat FROM categoriePublication";
+            PreparedStatement pst = connection.prepareStatement(requete);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                list.add(rs.getString(1));
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+            AlertMaker.showErrorMessage("Erreur", "Erreur lors de l'affichage des catégories");
+        }
+
+        return list;
+    }
+
+    public int getIDcat(String nomCat) {
+        int id_cat = 0;
+        try {
+            String requete = "SELECT id_cat FROM categoriePublication "
+                    + "WHERE nomCat='" + nomCat + "';";
+            PreparedStatement pst = connection.prepareStatement(requete);
+            pst.setString(1, nomCat);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                id_cat = rs.getInt("id_cat");
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+            AlertMaker.showErrorMessage("Erreur", "Erreur lors de l'affichage des catégories");
+        }
+        return id_cat;
+    }
 }

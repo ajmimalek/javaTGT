@@ -5,20 +5,19 @@
  */
 package com.esprit.pidev.tgt.controllers;
 
+import com.esprit.pidev.tgt.entities.Publication;
+import com.esprit.pidev.tgt.services.PublicationService;
+import com.esprit.pidev.tgt.utils.AlertMaker;
 import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.NodeOrientation;
 import javafx.scene.Node;
-import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
 /**
@@ -26,48 +25,58 @@ import javafx.scene.layout.VBox;
  * @author oXCToo
  */
 public class PublicationsController implements Initializable {
-    
-    
-      @FXML
+
+    @FXML
     private VBox pnl_scroll;
     @FXML
     private JFXButton btnadd;
     @FXML
     private JFXButton btnlist;
     
-    
+    PublicationService ps = new PublicationService();
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    }    
- 
-    @FXML
-    private void AjouterPublication(ActionEvent event) {
-        pnl_scroll.getChildren().clear();
-          try {
-              Node n = (Node)FXMLLoader.load(getClass().getResource("/com/esprit/pidev/tgt/views/AjoutPublication.fxml"));
-              pnl_scroll.getChildren().add(n);
-          } catch (IOException ex) {
-              Logger.getLogger(PublicationsController.class.getName()).log(Level.SEVERE, null, ex);
-          }
     }
 
     @FXML
-    private void AfficherPublications(ActionEvent event) {
-         pnl_scroll.getChildren().clear();
-        
-        Node [] nodes = new  Node[15];
-        
-        for(int i = 0; i<10; i++)
-        {
-            try {
-                nodes[i] = (Node)FXMLLoader.load(getClass().getResource("/com/esprit/pidev/tgt/views/Item.fxml"));
-               pnl_scroll.getChildren().add(nodes[i]);
-                
-            } catch (IOException ex) {
-                Logger.getLogger(PublicationsController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-           
-        }  
+    private void AjouterPublication(ActionEvent event) {
+        pnl_scroll.getChildren().clear();
+        try {
+            Node n = (Node) FXMLLoader.load(getClass().getResource("/com/esprit/pidev/tgt/views/AjoutPublication.fxml"));
+            pnl_scroll.getChildren().add(n);
+        } catch (IOException ex) {
+            System.err.println(ex.getMessage());
+            AlertMaker.showErrorMessage(ex);
+        }
     }
-    
+
+    @FXML
+    public void AfficherPublications(ActionEvent event) {
+        pnl_scroll.getChildren().clear();
+        //Create Node Tables
+        Node[] nodes = new Node[30];
+        //Declare a counter and the list
+        int i =0;
+        List<Publication> list = ps.afficher();
+        for (Publication publication : list) {
+             try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/esprit/pidev/tgt/views/Item.fxml"));
+                ItemController ic = new ItemController();
+                loader.setController(ic);
+                nodes[i] = loader.load();
+                pnl_scroll.getChildren().add(nodes[i]);
+                i++;
+                ic.showPublication(publication,nodes,i,list.size());
+               
+            } catch (IOException ex) {
+                System.err.println(ex.getMessage());
+                AlertMaker.showErrorMessage(ex);
+            }
+        }
+        if (pnl_scroll.getChildren().isEmpty()) {
+            AlertMaker.showSimpleAlert("Pas de publications", "Veuillez ajouter des publications");
+        }
+    }
+
 }

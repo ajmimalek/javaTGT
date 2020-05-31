@@ -19,13 +19,15 @@ public class Publication {
     private String localisation;
     private Timestamp datePub;
     private double ratingPub;
+    private int id_cat;
     
     //Update Query
-    public Publication(int id_pub,String contenu, String video, String localisation) {
+    public Publication(int id_pub,String contenu, String video, String localisation,int id_cat) {
         this.id_pub = id_pub;
         this.contenu = contenu;
         this.video = video;
         this.localisation = localisation;
+        this.id_cat = id_cat;
     }
     
     //Delete Query
@@ -34,11 +36,12 @@ public class Publication {
     }
     
     //Insert Query
-    public Publication(String contenu, String video, String localisation) {
+    public Publication(String contenu, String video, String localisation,int id_cat) {
         this.contenu = contenu;
         this.video = video;
         this.localisation = localisation;
         this.datePub = java.sql.Timestamp.valueOf(java.time.LocalDateTime.now());
+        this.id_cat = id_cat;
     }
     
     public int getId_pub() {
@@ -88,7 +91,15 @@ public class Publication {
     public void setRatingPub(double ratingPub) {
         this.ratingPub = ratingPub;
     }
-    
+
+    public int getId_cat() {
+        return id_cat;
+    }
+
+    public void setId_cat(int id_cat) {
+        this.id_cat = id_cat;
+    }
+      
     @Override
     public String toString() {
         return "Publication{" + "id_pub=" + id_pub + ", contenu=" + contenu + ", video=" + video + ", localisation=" + localisation + ", datePub=" + datePub + ", ratingPub=" + ratingPub + '}';

@@ -1,16 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="665.0" prefWidth="980.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
-   <children>
-      <JFXTextArea layoutX="200.0" layoutY="73.0" promptText="Exprimez-vous">
+<AnchorPane id="AnchorPane" fx:id="ancorPane" prefHeight="662.0" prefWidth="972.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.pidev.tgt.controllers.AjoutPublicationController">
+    <children>
+      <JFXTextArea fx:id="contenu" focusColor="#cc1573" layoutX="266.0" layoutY="76.0" prefHeight="164.0" prefWidth="448.0" promptText="Exprimez-vous" AnchorPane.leftAnchor="266.0" AnchorPane.rightAnchor="266.0">
          <font>
             <Font name="Raleway Italic" size="15.0" />
          </font>
       </JFXTextArea>
+      <ImageView fitHeight="35.0" fitWidth="38.0" layoutX="226.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@ressources/controls.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="271.0" layoutY="290.0" text="Catégories">
+         <font>
+            <Font name="Raleway Bold" size="16.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="catégories" focusColor="#cc1573" layoutX="266.0" layoutY="348.0" prefHeight="25.0" prefWidth="448.0" promptText="Choisir une catégorie" AnchorPane.leftAnchor="266.0" AnchorPane.rightAnchor="266.0" />
+      <ImageView fitHeight="35.0" fitWidth="38.0" layoutX="226.0" layoutY="405.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@ressources/photo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="271.0" layoutY="412.0" text="Vidéo">
+         <font>
+            <Font name="Raleway Bold" size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="video" layoutX="266.0" layoutY="448.0" mnemonicParsing="false" onAction="#uploadVidéo" prefHeight="25.0" prefWidth="126.0" text="Choisir un vidéo">
+         <font>
+            <Font name="Raleway Medium" size="14.0" />
+         </font></Button>
+      <Label fx:id="videotitle" layoutX="402.0" layoutY="452.0" prefHeight="18.0" prefWidth="336.0" text="Label">
+         <font>
+            <Font name="Raleway Medium" size="14.0" />
+         </font></Label>
+      <JFXButton fx:id="btnpublier" buttonType="RAISED" layoutX="417.0" layoutY="526.0" onAction="#Publier" prefHeight="44.0" prefWidth="147.0" style="-fx-background-color: linear-gradient(to right, #cc1573, #5722a9);" text="PUBLIER" textFill="WHITE">
+         <font>
+            <Font name="Raleway Bold" size="12.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

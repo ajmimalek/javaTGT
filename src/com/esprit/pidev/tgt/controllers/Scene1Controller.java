@@ -5,18 +5,15 @@
  */
 package com.esprit.pidev.tgt.controllers;
 
-import java.io.IOException;
+import com.esprit.pidev.tgt.utils.AlertMaker;
+import com.esprit.pidev.tgt.utils.Rooting;
+import com.jfoenix.controls.JFXProgressBar;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -39,24 +36,12 @@ public class Scene1Controller implements Initializable {
                 Thread.sleep(2000);
 
                 Platform.runLater(() -> {
-                    Stage stage = new Stage();
-                    Parent root = null;
-                    try {
-                        root = FXMLLoader.load(ShowSplashScreen.this.getClass().getResource("/com/esprit/pidev/tgt/views/login.fxml"));
-                    } catch (IOException ex) {
-                        System.err.println(ex.getMessage());
-                    }
-                    Scene scene = new Scene(root);
-                    //Lancer le stage
-                    stage.setTitle("Tunisians Got Talents");
-                    stage.setScene(scene);
-                    stage.show();
+                    Rooting.navigate("Connexion", "login");
                     splash.getScene().getWindow().hide();
-                    //Icone
-                    stage.getIcons().add(new Image("file:favicon.png"));
                 });
             } catch (InterruptedException ex) {
                 System.err.println(ex.getMessage());
+                AlertMaker.showErrorMessage(ex);
             }
         }
 
@@ -67,5 +52,4 @@ public class Scene1Controller implements Initializable {
         new ShowSplashScreen().start();
     }
    
-    
 }
