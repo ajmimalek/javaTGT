@@ -5,23 +5,28 @@
  */
 package com.esprit.pidev.tgt.controllers;
 
+import com.esprit.pidev.tgt.entities.Compte;
+import com.esprit.pidev.tgt.entities.Utilisateur;
+import com.esprit.pidev.tgt.enumeration.Genre;
+import com.esprit.pidev.tgt.services.CompteService;
+import com.esprit.pidev.tgt.services.UtilisateurService;
 import com.esprit.pidev.tgt.utils.AlertMaker;
+import com.esprit.pidev.tgt.utils.ConectedUser;
 import com.esprit.pidev.tgt.utils.Rooting;
 import com.jfoenix.controls.JFXButton;
-import java.io.IOException;
+import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXRadioButton;
 import java.net.URL;
+import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
@@ -31,9 +36,12 @@ import javafx.util.Duration;
 /**
  * FXML Controller class
  *
- * @author Malek
+ * @author Seif Henchir
  */
 public class LoginController implements Initializable {
+
+    private UtilisateurService utilisateurService = new UtilisateurService();
+    private CompteService compteService = new CompteService();
 
     @FXML
     private AnchorPane layersignup;
@@ -41,20 +49,13 @@ public class LoginController implements Initializable {
     private AnchorPane layer1;
     @FXML
     private Label a2;
+//    private TextField u1;
+//    private TextField u2;
+//    private TextField u3;
+//    private JFXButton btnsignup;
+    
     @FXML
-    private TextField u1;
-    @FXML
-    private TextField u2;
-    @FXML
-    private TextField u3;
-    @FXML
-    private JFXButton btnsignup;
-    @FXML
-    private JFXButton btnsignin;
-    @FXML
-    private TextField n1;
-    @FXML
-    private PasswordField n2;
+    private Label b2;
     @FXML
     private AnchorPane layer2;
     @FXML
@@ -73,11 +74,58 @@ public class LoginController implements Initializable {
     private Label s2;
     @FXML
     private Label s3;
-    @FXML
-    private Label b2;
+    
     @FXML
     private StackPane stackPanel;
-
+    @FXML
+    private JFXButton login;
+    @FXML
+    private TextField loginUsername;
+    @FXML
+    private PasswordField loginPassword;
+    @FXML
+    private TextField prenom;
+    @FXML
+    private TextField numTel;
+    @FXML
+    private TextField password;
+    @FXML
+    private JFXButton ajoutBoutton;
+    @FXML
+    private TextField username;
+    @FXML
+    private JFXDatePicker dateNaissance;
+    @FXML
+    private JFXRadioButton genreHomme;
+    @FXML
+    private JFXRadioButton genreFemme;
+    @FXML
+    private TextField confirmePassword;
+    @FXML
+    private TextField nom;
+    @FXML
+    private TextField email;
+    @FXML
+    private Label i1;
+    @FXML
+    private Label i2;
+    @FXML
+    private Label i3;
+    @FXML
+    private Label i4;
+    @FXML
+    private Label i6;
+    @FXML
+    private Label i7;
+    @FXML
+    private Label i8;
+    @FXML
+    private Label i9;
+    @FXML
+    private Label i5;
+    @FXML
+    private JFXButton oublier;
+public  Utilisateur utilisateurs;
     /**
      * Initializes the controller class.
      */
@@ -88,17 +136,17 @@ public class LoginController implements Initializable {
         b2.setVisible(false);
         s3.setVisible(false);
         signup.setVisible(false);
-        btnsignin.setVisible(false);
-        n1.setVisible(false);
-        n2.setVisible(false);
-        u1.setVisible(true);
-        u2.setVisible(true);
-        u3.setVisible(true);
+        login.setVisible(false);
+        oublier.setVisible(false);
+        
+        loginUsername.setVisible(false);
+        loginPassword.setVisible(false);
+
     }
 
     @FXML
     private void btn(MouseEvent event) {
-       TranslateTransition slide = new TranslateTransition();
+        TranslateTransition slide = new TranslateTransition();
         slide.setDuration(Duration.seconds(0.7));
         slide.setNode(layer2);
 
@@ -106,23 +154,49 @@ public class LoginController implements Initializable {
         slide.play();
 
         layer1.setTranslateX(-309);
-        btnsignin.setVisible(true);
+        login.setVisible(true);
+        oublier.setVisible(true);
+        a2.setVisible(false);
         b2.setVisible(true);
+        
+        
         s1.setVisible(true);
         s2.setVisible(true);
         s3.setVisible(true);
         signup.setVisible(true);
+        signin.setVisible(false);
         l1.setVisible(false);
         l2.setVisible(false);
         l3.setVisible(false);
-        signin.setVisible(false);
-        a2.setVisible(false);
-        btnsignup.setVisible(false);
-        n1.setVisible(true);
-        n2.setVisible(true);
-        u1.setVisible(false);
-        u2.setVisible(false);
-        u3.setVisible(false);
+        
+        
+
+        loginUsername.setVisible(true);
+        loginPassword.setVisible(true);
+
+        
+         i1.setVisible(false);
+         i2.setVisible(false);
+         i3.setVisible(false);
+         i4.setVisible(false);
+         i5.setVisible(false);
+         i6.setVisible(false);
+         i7.setVisible(false);
+         i8.setVisible(false);
+         i9.setVisible(false);
+         
+         nom.setVisible(false);
+         prenom.setVisible(false);
+         dateNaissance.setVisible(false);
+         genreHomme.setVisible(false);
+         genreFemme.setVisible(false);
+         email.setVisible(false);
+         numTel.setVisible(false);
+         username.setVisible(false);
+         password.setVisible(false);
+         confirmePassword.setVisible(false);
+         ajoutBoutton.setVisible(false);
+         
 
         slide.setOnFinished((e -> {
 
@@ -139,48 +213,159 @@ public class LoginController implements Initializable {
         slide.play();
 
         layer1.setTranslateX(0);
-        btnsignin.setVisible(false);
+        
+        login.setVisible(false);
+        oublier.setVisible(false);
 
+        a2.setVisible(true);
+        b2.setVisible(false);
+        
+        
+        
         s1.setVisible(false);
         s2.setVisible(false);
         s3.setVisible(false);
         signup.setVisible(false);
+        signin.setVisible(true);
         l1.setVisible(true);
         l2.setVisible(true);
         l3.setVisible(true);
-        signin.setVisible(true);
-        a2.setVisible(true);
-        btnsignup.setVisible(true);
-        n1.setVisible(false);
-        n2.setVisible(false);
-        u1.setVisible(true);
-        u2.setVisible(true);
-        u3.setVisible(true);
-        b2.setVisible(false);
+        
+        
+
+        loginUsername.setVisible(false);
+        loginPassword.setVisible(false);
+
+
+
+         i1.setVisible(true);
+         i2.setVisible(true);
+         i3.setVisible(true);
+         i4.setVisible(true);
+         i5.setVisible(true);
+         i6.setVisible(true);
+         i7.setVisible(true);
+         i8.setVisible(true);
+         i9.setVisible(true);
+         
+         nom.setVisible(true);
+         prenom.setVisible(true);
+         dateNaissance.setVisible(true);
+         genreHomme.setVisible(true);
+         genreFemme.setVisible(true);
+         email.setVisible(true);
+         numTel.setVisible(true);
+         username.setVisible(true);
+         password.setVisible(true);
+         confirmePassword.setVisible(true);
+         ajoutBoutton.setVisible(true);
+         
+        
 
         slide.setOnFinished((e -> {
 
         }));
-    }
+        }
 
+    
+
+    
+    
+    
     @FXML
-    private void Connexion(ActionEvent event) {
-        Stage stage = new Stage();
-        Parent root = null;
-        if ((n1.getText().equals("ajmimalek"))&&(n2.getText().equals("123"))){
-            Rooting.navigate("Espace Administrateur", "BackOffice");
-            stackPanel.getScene().getWindow().hide();
-        } else if ((n1.getText().equals("malek123"))&&(n2.getText().equals("saveme"))) {
-            Rooting.navigate("Acceuil", "Main");
-            stackPanel.getScene().getWindow().hide();
-        } else {
-            AlertMaker.showErrorMessage("Username et Mot de passe manquant", "Veuillez mentionner votre username et votre mot de passe");
+    private void login(ActionEvent event) {
+       try{
+        Utilisateur utilisateur = utilisateurService.findByUsername(this.loginUsername.getText());
+        
+        if (utilisateur!= null && utilisateur.getCompte().getPassword().equals(this.loginPassword.getText())&&
+                utilisateur.getCompte().getRoleType().equals(utilisateur.getCompte().getRoleType().talent)
+                ){
+            System.out.println(utilisateur);
+            ConectedUser.setUtilisateur(utilisateur);
+            
+           
+            
+            
+            Rooting.navigate("Profile", "profile");
+             closeStage();
+         
+        }else if (utilisateur!= null && utilisateur.getCompte().getPassword().equals(this.loginPassword.getText())&&
+                utilisateur.getCompte().getRoleType().equals(utilisateur.getCompte().getRoleType().admin)
+                ){
+            System.out.println(utilisateur);
+            ConectedUser.setUtilisateur(utilisateur);
+            
+           
+            
+            
+                    Rooting.navigate("Admin", "BackOfficeProfile");
+                    closeStage();
+       }else {
+            AlertMaker.showErrorMessage("invalid password or login", "merci de saisire le mdp or login valide");
+ 
+        }
+        }catch(SQLException ex){
+        
         }
         
     }
+    
+    
+    @FXML
+    private void ajouterUtilisateur(ActionEvent event) {
+        boolean ok = true;
+        
+        String nom = this.nom.getText();
+        String prenom = this.prenom.getText();
+        LocalDate dateNaissance = this.dateNaissance.getValue();
+        Genre genre = this.genreHomme.isSelected()? Genre.HOMME:Genre.FEMME;
+        String numTel = this.numTel.getText();
+        String email = this.email.getText();
+        String username = this.username.getText();
+        String password = this.password.getText();
+        String confirmePassword = this.confirmePassword.getText();
+        if(!email.matches("[^@]+@[^\\.]+\\..+")){
+           
+             ok=false;
+            AlertMaker.showErrorMessage("invalid mail", "suive ce pattern ([^@]+@[^\\.]+\\..+) stp");}
+             else if ( nom.length()==0 || prenom.length()==0 || username.length()==0   ) {
+            
+                    AlertMaker.showErrorMessage("chanps vide ", "le nom ,prenom et username  ne doit pas etre vide");}
+                    else  if( password.length() != confirmePassword.length() ){
+                         AlertMaker.showErrorMessage(" password incorrect ", " le mot de passe et la confirmation doit etre identique ");
+                     }
+                         
+            
+            
+        else {  
+        Compte compte = new Compte(username, password, null);
+        Utilisateur utilisateur = new Utilisateur(nom, prenom, dateNaissance, genre, numTel, email, null, compte);
+        System.out.println("com.esp");
+         try {
+            utilisateurService.save(utilisateur);
+            AlertMaker.showSimpleAlert("iscription", "inscription avec succes");
+           // ConectedUser.setUtilisateur(utilisateur);
+            Rooting.navigate("login", "login");
+            closeStage();
+        } catch (SQLException ex) {
+           // Logger.getLogger(SingUpController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            }
+       
+
+    }
+
+    
+    
+    
+        private void closeStage() {
+        ((Stage) username.getScene().getWindow()).close();
+          }
 
     @FXML
-    private void Inscription(ActionEvent event) {
+    private void Recuperation(ActionEvent event) {
+         Rooting.navigate("Admin", "RecupMdp");
+                   closeStage();
     }
 
 }

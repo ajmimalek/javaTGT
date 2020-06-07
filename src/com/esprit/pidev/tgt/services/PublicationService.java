@@ -31,11 +31,10 @@ import org.json.JSONObject;
  *
  * @author Malek
  */
-public class PublicationService implements IServices<Publication> {
+public class PublicationService  {
 
     Connection connection = DataSource.getInstance().getConnection();
 
-    @Override
     public void ajouter(Publication t) {
         try {
             String req = "ALTER TABLE publication AUTO_INCREMENT = " + Statement.RETURN_GENERATED_KEYS;
@@ -56,7 +55,6 @@ public class PublicationService implements IServices<Publication> {
         }
     }
 
-    @Override
     public void supprimer(Publication t) {
         try {
             String requete = "DELETE FROM publication WHERE id_pub=?";
@@ -70,7 +68,6 @@ public class PublicationService implements IServices<Publication> {
         }
     }
 
-    @Override
     public void modifier(Publication t) {
         try {
             String requete = "UPDATE publication SET contenu=? ,video=? ,localisation=?,id_cat=? WHERE id_pub=?";
@@ -88,7 +85,6 @@ public class PublicationService implements IServices<Publication> {
         }
     }
 
-    @Override
     public List<Publication> afficher() {
         List<Publication> list = new ArrayList<>();
 

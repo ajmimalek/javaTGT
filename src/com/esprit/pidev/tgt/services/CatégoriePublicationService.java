@@ -20,11 +20,10 @@ import java.util.List;
  *
  * @author Malek
  */
-public class CatégoriePublicationService implements IServices<CatégoriePublication> {
+public class CatégoriePublicationService  {
 
     Connection connection = DataSource.getInstance().getConnection();
 
-    @Override
     public void ajouter(CatégoriePublication t) {
         try {
             String req = "ALTER TABLE categoriePublication AUTO_INCREMENT = " + Statement.RETURN_GENERATED_KEYS;
@@ -42,7 +41,6 @@ public class CatégoriePublicationService implements IServices<CatégoriePublica
         }
     }
 
-    @Override
     public void supprimer(CatégoriePublication t) {
         try {
             String requete = "DELETE FROM categoriePublication WHERE id_cat=?";
@@ -71,7 +69,6 @@ public class CatégoriePublicationService implements IServices<CatégoriePublica
         }
     }
 
-    @Override
     public void modifier(CatégoriePublication t) {
         try {
             String requete = "UPDATE categoriePublication SET nomCat=? WHERE id_cat=?";
@@ -87,7 +84,6 @@ public class CatégoriePublicationService implements IServices<CatégoriePublica
         }
     }
 
-    @Override
     public List<CatégoriePublication> afficher() {
         List<CatégoriePublication> list = new ArrayList<>();
 

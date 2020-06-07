@@ -18,13 +18,12 @@ import java.util.List;
  *
  * @author Malek
  */
-public class CommentairePublicationService implements IServices<CommentairePublication>{
+public class CommentairePublicationService {
     
     Connection connection = DataSource.getInstance().getConnection();
     
     PublicationService pubs = new PublicationService();
 
-    @Override
     public void ajouter(CommentairePublication t) {
         try {
             String req = "ALTER TABLE commentairePublication AUTO_INCREMENT = "+ Statement.RETURN_GENERATED_KEYS;
@@ -50,7 +49,6 @@ public class CommentairePublicationService implements IServices<CommentairePubli
         }
     }
 
-    @Override
     public void supprimer(CommentairePublication t) {
          try {
             String requete = "DELETE FROM Commentairepublication WHERE id_comment=?";
@@ -69,7 +67,6 @@ public class CommentairePublicationService implements IServices<CommentairePubli
         }
     }
 
-    @Override
     public void modifier(CommentairePublication t) {
         try {
             String requete = "UPDATE Commentairepublication SET contenu='"+t.getContenu()+"',Nbinutile='"+t.getNbinutile()+"',ratingComm='"+t.getRatingComm()+"' WHERE id_comment='"+t.getId_comment()+"'";
@@ -82,7 +79,6 @@ public class CommentairePublicationService implements IServices<CommentairePubli
         }
     }
 
-    @Override
     public List<CommentairePublication> afficher() {
        List<CommentairePublication> list = new ArrayList<>();
 

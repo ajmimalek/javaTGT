@@ -5,16 +5,18 @@
  */
 package com.esprit.pidev.tgt.services;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
  *
- * @author Malek
+ * @author Seif Henchir
  * @param <T>
  */
 public interface IServices<T> {
-    public void ajouter(T t);
-    public void supprimer(T t);
-    public void modifier(T t);
-    public List<T> afficher();
+     public boolean update(T t) throws SQLException;
+     public List<T> findAll()throws SQLException;
+     public T findById(int id) throws SQLException;
+     public void delete(int id) throws SQLException;
+     public void deleteAll() throws SQLException;
 }

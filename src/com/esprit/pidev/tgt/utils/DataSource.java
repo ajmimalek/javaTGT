@@ -17,7 +17,7 @@ import java.sql.SQLException;
 public class DataSource {
     private final String login = "root";
     private final String mdp = "";
-    private final String url = "jdbc:mysql://localhost:3308/tgtbd";
+    private final String url = "jdbc:mysql://localhost:3306/tgtjava";
     private Connection connection;
     //2éme étape: Créer une attribut static du meme type de la classe
     private static DataSource instance;

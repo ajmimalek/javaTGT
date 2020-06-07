@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="ancorPane" prefHeight="574.0" prefWidth="862.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.pidev.tgt.controllers.RecupMdpController">
+    <children>
+      <JFXButton fx:id="recuperer" buttonType="RAISED" layoutX="358.0" layoutY="446.0" onAction="#btnrecuperer" prefHeight="44.0" prefWidth="147.0" style="-fx-background-color: linear-gradient(to right, #cc1573, #5722a9);" text="recuperer" textFill="WHITE">
+         <font>
+            <Font name="Raleway Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="91.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="860.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#cc1573" />
+                  <Stop color="#5722a9" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Label layoutX="231.0" layoutY="11.0" text="Recuperation mdp" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="46.0" />
+         </font>
+      </Label>
+      <Label layoutX="194.0" layoutY="219.0" prefHeight="34.0" prefWidth="135.0" text="username :">
+         <font>
+            <Font name="Forte" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="numtel" layoutX="362.0" layoutY="312.0" prefHeight="34.0" prefWidth="287.0" />
+      <TextField fx:id="username" layoutX="362.0" layoutY="219.0" prefHeight="34.0" prefWidth="287.0" />
+      <Label layoutX="22.0" layoutY="129.0" prefHeight="21.0" prefWidth="506.0" text="pour recupere votre mot de passse merci de saisie donner valide :">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="194.0" layoutY="303.0" prefHeight="34.0" prefWidth="116.0" text="telphone : ">
+         <font>
+            <Font name="Forte" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
