@@ -67,7 +67,7 @@ public class CommentairesController implements Initializable {
     void SupprimerCatégorie(ActionEvent event) {
         CommentairePublication selectedCommentaire = lscommentaires.getSelectionModel().getSelectedItem();
         if (selectedCommentaire == null){
-            AlertMaker.showSimpleAlert("Candidat non sélectionné", "Veuillez sélectionner un candidat");
+            AlertMaker.showSimpleAlert("Commentaire non sélectionné", "Veuillez sélectionner un commentaire");
         } else {
             cps.supprimer(selectedCommentaire);
             oblist.remove(selectedCommentaire);
@@ -119,9 +119,7 @@ public class CommentairesController implements Initializable {
 
     public void AjouterCommentaire(Publication p) {
         btnpublier.addEventHandler(ActionEvent.ACTION, (event) -> {
-            if (btnrating.getRating() == 0) {
-                AlertMaker.showSimpleAlert("Avis Manquant", "Veuillez donnez votre avis");
-            } else {
+            
                 if (txtrating.getText() == null) {
                     txtrating.setText("");
                 }
@@ -130,7 +128,7 @@ public class CommentairesController implements Initializable {
                 cps.ajouter(cp);
                 oblist.add(cp);
                 txtrating.setText("");
-            }
+                btnrating.setRating(0);
         });
         trieDate.addEventHandler(ActionEvent.ACTION, (event) -> {
             oblist.clear();

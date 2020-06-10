@@ -194,7 +194,6 @@ public class ItemController implements Initializable {
                 stage.setScene(new Scene(parent));
                 stage.show();
                 controller.ModifierPublication(publication, stage, contenu, position, mediaView);
-
             } catch (IOException ex) {
                 AlertMaker.showErrorMessage(ex);
             }

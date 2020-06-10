@@ -47,7 +47,7 @@
          </font>
       </Label>
       <Rating fx:id="btnrating" layoutX="47.0" layoutY="162.0" rating="0.0" updateOnHover="true" />
-      <JFXTextField fx:id="txtrating" focusColor="#cc1573" layoutX="274.0" layoutY="166.0" prefHeight="25.0" prefWidth="458.0" promptText="Ajouter votre commentaire" />
+      <JFXTextField fx:id="txtrating" focusColor="#cc1573" layoutX="274.0" layoutY="166.0" prefHeight="25.0" prefWidth="458.0" promptText="Ajoutez votre commentaire" />
       <Label layoutX="46.0" layoutY="221.0" text="Notes et Commentaires">
          <font>
             <Font name="System Bold" size="15.0" />
@@ -62,7 +62,7 @@
         <columns>
           <TableColumn fx:id="commentaire" prefWidth="225.0" sortable="false" text="Commentaire" />
             <TableColumn fx:id="rating" minWidth="0.0" prefWidth="110.0" sortable="false" text="Rating" />
-            <TableColumn fx:id="dateComm" editable="false" prefWidth="242.0" sortable="false" text="Date Publication" />
+            <TableColumn fx:id="dateComm" editable="false" prefWidth="242.0" sortable="false" text="Date Commentaire" />
         </columns>
       </TableView>
       <Label layoutX="30.0" layoutY="270.0" text="Si vous voulez afficher les commentaires les plus récents ou afficher les commentaires par note , veuillez sélectionner les options &quot;Les plus récents&quot; et &quot;Note&quot;">

@@ -139,7 +139,8 @@ public class ModifPublicationController implements Initializable {
     public void ModifierPublication(Publication p,Stage stage,Label contenu1,Label position,MediaView mediaView) {
         btnpublier.addEventHandler(ActionEvent.ACTION, (event) -> {
             int indexCat = catégoriesMap1.get(catégories.getSelectionModel().getSelectedItem());
-            ps.modifier(new Publication(p.getId_pub(),contenu.getText(), videotitle.getText(), location.getValue(), indexCat));
+            Publication nouvellePub = new Publication(p.getId_pub(),contenu.getText(), videotitle.getText(), location.getValue(), indexCat);
+            ps.modifier(nouvellePub);
             AlertMaker.showSimpleAlert("Publication Modifiée", "Publication Modifiée avec Succés");
             stage.close();
             contenu1.setText(contenu.getText());

@@ -87,7 +87,7 @@ public class AjoutPublicationController implements Initializable {
                 new FileChooser.ExtensionFilter("WMV", "*.wmv")
         );
         File f = chooser.showOpenDialog(s);
-        Path path = Paths.get(System.getProperty("user.home") + "/Desktop/TGTVideos");
+        Path path = Paths.get("C:\\wamp64\\www\\TGTFinale\\web\\uploads\\assets");
         Files.createDirectories(path);
         File publicationFile = new File(path.toString() + "/" + f.getName());
         try {
