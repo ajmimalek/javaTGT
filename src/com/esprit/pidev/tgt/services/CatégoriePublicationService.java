@@ -87,7 +87,6 @@ public class CatégoriePublicationService implements IServices<CatégoriePublica
         }
     }
 
-    @Override
     public List<CatégoriePublication> afficher() {
         List<CatégoriePublication> list = new ArrayList<>();
 

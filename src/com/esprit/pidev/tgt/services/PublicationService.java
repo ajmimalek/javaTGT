@@ -88,7 +88,6 @@ public class PublicationService implements IServices<Publication> {
         }
     }
 
-    @Override
     public List<Publication> afficher() {
         List<Publication> list = new ArrayList<>();
 

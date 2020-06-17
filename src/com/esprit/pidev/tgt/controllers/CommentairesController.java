@@ -62,6 +62,8 @@ public class CommentairesController implements Initializable {
     private JFXButton trieDate;
     @FXML
     private JFXButton trieRating;
+    @FXML
+    private JFXButton restore;
 
     @FXML
     void SupprimerCatégorie(ActionEvent event) {
@@ -82,11 +84,11 @@ public class CommentairesController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        oblist.clear();
         //cellValueFactory gets value from item
         commentaire.setCellValueFactory(new PropertyValueFactory<>("contenu"));
         rating.setCellValueFactory(new PropertyValueFactory<>("ratingComm"));
         dateComm.setCellValueFactory(new PropertyValueFactory<>("dateComm"));
-        
         //Transforme le tableau en éditable
         lscommentaires.setEditable(true);
         //Editable contenu commentaire
@@ -111,13 +113,12 @@ public class CommentairesController implements Initializable {
             cps.modifier(e.getRowValue());
             System.out.println(e.getRowValue());
         });
-
-        //Chargement des donnés du BD
-        oblist.addAll(cps.afficher());
         lscommentaires.setItems(oblist);
+        
     }
 
     public void AjouterCommentaire(Publication p) {
+        lscommentaires.setItems(oblist);
         btnpublier.addEventHandler(ActionEvent.ACTION, (event) -> {
             
                 if (txtrating.getText() == null) {
@@ -139,6 +140,11 @@ public class CommentairesController implements Initializable {
         trieRating.addEventHandler(ActionEvent.ACTION, (event) -> {
             oblist.clear();
             oblist.addAll(cps.trieParRating(p.getId_pub()));
+            lscommentaires.setItems(oblist);
+        });
+        restore.addEventHandler(ActionEvent.ACTION, (event) -> {
+            oblist.clear();
+            oblist.addAll(cps.afficher(p));
             lscommentaires.setItems(oblist);
         });
     }

@@ -5,6 +5,7 @@
  */
 package com.esprit.pidev.tgt.services;
 import com.esprit.pidev.tgt.entities.CommentairePublication;
+import com.esprit.pidev.tgt.entities.Publication;
 import com.esprit.pidev.tgt.utils.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -81,14 +82,14 @@ public class CommentairePublicationService implements IServices<CommentairePubli
             System.err.println(ex.getMessage());
         }
     }
-
-    @Override
-    public List<CommentairePublication> afficher() {
+    
+    public List<CommentairePublication> afficher(Publication p) {
        List<CommentairePublication> list = new ArrayList<>();
 
         try {
-            String requete = "SELECT * FROM Commentairepublication";
+            String requete = "SELECT * FROM Commentairepublication WHERE id_pub=?";
             PreparedStatement pst = connection.prepareStatement(requete);
+            pst.setInt(1, p.getId_pub());
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 CommentairePublication cp = new CommentairePublication(rs.getInt("id_comment"));
@@ -113,7 +114,7 @@ public class CommentairePublicationService implements IServices<CommentairePubli
         
         try {
             String requete = "SELECT * FROM Commentairepublication "
-                    + "WHERE id_pub=? ORDER BY ratingComm";
+                    + "WHERE id_pub=? ORDER BY ratingComm DESC";
             PreparedStatement pst = connection.prepareStatement(requete);
             pst.setInt(1, id_pub);
             ResultSet rs = pst.executeQuery();

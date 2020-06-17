@@ -6,6 +6,7 @@
 package com.esprit.pidev.tgt.controllers;
 
 import com.esprit.pidev.tgt.entities.Publication;
+import com.esprit.pidev.tgt.services.CommentairePublicationService;
 import com.esprit.pidev.tgt.services.PublicationService;
 import com.esprit.pidev.tgt.utils.AlertMaker;
 import com.jfoenix.controls.JFXButton;
@@ -17,8 +18,6 @@ import java.time.format.TextStyle;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,7 +37,6 @@ import javafx.scene.media.MediaView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Duration;
 import org.controlsfx.control.Rating;
 
 /**
@@ -94,6 +92,7 @@ public class ItemController implements Initializable {
 
     @FXML
     private JFXProgressBar un;
+    
 
     PublicationService ps = new PublicationService();
 
@@ -133,7 +132,13 @@ public class ItemController implements Initializable {
 
     public void showPublication(Publication publication, Node[] nodes, int i, int last) {
         contenu.setText(publication.getContenu());
-        time.setText(Integer.toString(publication.getDatePub().getHours()) + ":" + Integer.toString(publication.getDatePub().getMinutes()));
+        String minutes = null;
+        if (publication.getDatePub().toLocalDateTime().getMinute()<10) {
+            minutes = "0"+publication.getDatePub().toLocalDateTime().getMinute();
+        } else {
+            minutes = Integer.toString(publication.getDatePub().toLocalDateTime().getMinute());
+        }
+        time.setText(Integer.toString(publication.getDatePub().toLocalDateTime().getHour()) + ":" + minutes );
         day.setText(Integer.toString(publication.getDatePub().toLocalDateTime().getDayOfMonth()));
         year.setText(Integer.toString(publication.getDatePub().toLocalDateTime().getYear()));
         String s = publication.getDatePub().toLocalDateTime().getMonth().getDisplayName(TextStyle.SHORT, Locale.FRANCE);
@@ -155,8 +160,14 @@ public class ItemController implements Initializable {
             /**
              * ** Objets Media, MediaPlayer et MediaView *****
              */
+            String path = null;
+            if (publication.getVideo().startsWith("file:/")) {
+                path = publication.getVideo();
+            } else if (!publication.getVideo().startsWith("file")){
+                path = "file:/C:/wamp64/www/TGTWeb/web/uploads/assets/"+publication.getVideo();
+            }
             //Media
-            Media media = new Media(publication.getVideo());
+            Media media = new Media(path);
             //MediaPlayer
             MediaPlayer mediaplayer = new MediaPlayer(media);
             //MediaView
@@ -202,8 +213,10 @@ public class ItemController implements Initializable {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/esprit/pidev/tgt/views/Commentaires.fxml"));
                 CommentairesController cc = new CommentairesController();
+                CommentairePublicationService cps = new CommentairePublicationService();
                 loader.setController(cc);
                 Parent parent = loader.load();
+                cc.oblist.addAll(cps.afficher(publication));
                 Stage stage = new Stage(StageStyle.DECORATED);
                 stage.initModality(Modality.APPLICATION_MODAL);
                 stage.setTitle("Liste des commentaires");
