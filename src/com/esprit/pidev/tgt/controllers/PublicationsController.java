@@ -61,8 +61,8 @@ public class PublicationsController implements Initializable {
         List<Publication> list = ps.afficher();
         for (Publication publication : list) {
              try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/esprit/pidev/tgt/views/Item.fxml"));
-                ItemController ic = new ItemController();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/esprit/pidev/tgt/views/ItemPublication.fxml"));
+                ItemPublicationController ic = new ItemPublicationController();
                 loader.setController(ic);
                 nodes[i] = loader.load();
                 pnl_scroll.getChildren().add(nodes[i]);

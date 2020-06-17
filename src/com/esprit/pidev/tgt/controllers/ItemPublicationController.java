@@ -44,7 +44,7 @@ import org.controlsfx.control.Rating;
  *
  * @author ajmim_9xsk8tf
  */
-public class ItemController implements Initializable {
+public class ItemPublicationController implements Initializable {
 
     @FXML // fx:id="item"
     private AnchorPane item; // Value injected by FXMLLoader
